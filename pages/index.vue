@@ -22,7 +22,7 @@
       <section class="relative">
         <div class="p-20">
           <h1 class="text-6xl text-center font-bold heading">
-            SOME HEADING OVER HERE
+            SOME HEADING OVER HEReE
           </h1>
         </div>
         <video
