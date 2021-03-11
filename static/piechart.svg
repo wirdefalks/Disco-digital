@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg
+ xmlns="http://www.w3.org/2000/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ width="30" height="30" 
+ viewBox="0 0 30 30"
+ >
+  <circle cx="15" cy="15" r="15" fill="#96363A" />
+  <path d="M 15 15 l 0 -15 a 15 15 0 0 0 -8.82 27.14 z" fill="#C08485" stroke-linejoin="round" />  
+</svg>
