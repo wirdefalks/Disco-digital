@@ -38,6 +38,7 @@ export default {
 		// https://go.nuxtjs.dev/tailwindcss
 		'@nuxtjs/tailwindcss',
 		'nuxt-compress',
+		'@nuxtjs/sanity',
 	],
 
 	// Modules (https://go.nuxtjs.dev/config-modules)
@@ -68,6 +69,10 @@ export default {
 		transpile: ['gsap']
 	},
 
+	sanity: {
+		projectId: 'ygcad2ic',
+		dataset:'production',
+	  },
 	// GSAP
 
 	// Global page transition
