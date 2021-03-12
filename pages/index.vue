@@ -6,6 +6,8 @@
       class="max-w-2xl space-y-2 text-base text-left"
       :blocks="page.body"
     />
+
+    <a :href="page.mainImage + '?dl=asd.jpg'">Download</a>
   </div>
 </template>
 
@@ -21,6 +23,7 @@ export default {
   async asyncData({ $sanity }) {
     return { page: await $sanity.fetch(query) }
   },
+  methods: {},
 }
 </script>
 
