@@ -26,8 +26,7 @@ export default {
 
 	// Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
 	plugins: [
-		{ src: '@/plugins/vue-tippy', ssr: true },
-		{ src: '@/plugins/v-click-outside', ssr: true },
+		
 	],
 
 	// Auto import components (https://go.nuxtjs.dev/config-components)
