@@ -1,7 +1,7 @@
 export default {
 	// Global page headers (https://go.nuxtjs.dev/config-head)
 	head: {
-		title: 'NTT-Template',
+		title: 'Events',
 
 		meta: [
 			{ charset: 'utf-8' },
@@ -13,7 +13,7 @@ export default {
 				hid: 'description',
 				name: 'description',
 				content: `
-							A Template for Nuxt.js + Tailwind CSS + Three.js Projects.
+							Events Description.
 						`,
 			},
 		],

@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="flex items-center justify-between flex-wrap bg-green-100 p-2 shadow w-full z-10 top-0"
+    class="flex items-center justify-between absolute flex-wrap bg-green-100 p-2 shadow w-full z-10 top-0"
   >
     <div class="flex items-center flex-shrink-0 text-white mr-6">
       <a
@@ -30,17 +30,13 @@
 
     <div
       :class="[
-        toggle ? 'hidden' : '',
+        toggle ? '' : 'hidden',
         'w-full flex-grow lg:flex lg:items-center lg:w-auto pt-6 lg:pt-0',
       ]"
       id="nav-content"
     >
       <ul class="list-reset lg:flex justify-end flex-1 items-center">
-        <li class="mr-3">
-          <a class="inline-block py-2 px-4 text-white no-underline" href="#"
-            >Active</a
-          >
-        </li>
+        
         <li class="mr-3">
           <a href="/about"
             class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"

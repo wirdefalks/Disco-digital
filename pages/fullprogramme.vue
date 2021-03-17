@@ -1,7 +1,7 @@
 <template>
-  <div class=' h-full '>
-      <h1 class=" text-2xl text-center ">{{page.header}}</h1>
-    <div v-if="mount">
+  <div class=' h-full pt-16'>
+      <h1 class="text-5xl text-center font-bold">{{page.header}}</h1>
+    <div v-if="mount" class="p-10">
 
     <FullCalendar :options='calendarOptions' />
     </div>
