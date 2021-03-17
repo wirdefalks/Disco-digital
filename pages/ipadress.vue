@@ -41,7 +41,6 @@
 </template>
 
 <script>
-const url = 'http://ipinfo.io/json'
 export default {
   async asyncData({ $axios }) {
     const results = await $axios.$get('http://ipinfo.io/json')
