@@ -1,23 +1,24 @@
 <template>
-  <div>
-    <h1>{{ page.title }}</h1>
-    <img :src="page.mainImage" class="w-50 m-auto" alt="" />
+  <div class="grid h-screen place-items-center grid-cols-1 ">
+    <div class="  w-10/12 lg:w-1/2 text-center shadow p-10">
+
+    <h1 class=" text-5xl text-center font-bold  ">{{ page.text }}</h1>
+    <img :src="page.logo" class="w-20 mx-auto my-4" alt="">
     <SanityContent
       class="max-w-2xl space-y-2 text-base text-left"
-      :blocks="page.body"
+      :blocks="page.about"
     />
-    <h1 :style="{ color: page.color }">hola</h1>
-    <h1>{{ page.publishedAt }}</h1>
-    <a :href="page.mainImage + '?dl=asd.jpg'">Download</a>
+    </div>
+   
   </div>
 </template>
 
 <script>
 import { groq } from '@nuxtjs/sanity'
 
-const query = groq`*[_type=="post"][0]{
-  title, slug, body, color,publishedAt,
-  "mainImage": mainImage.asset->url,
+const query = groq`*[_type=="home"][1]{
+  text,about,
+  "logo": logo.asset->url,
 }`
 
 export default {
