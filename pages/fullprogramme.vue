@@ -1,6 +1,7 @@
 <template>
   <div v-if="page" class=' h-full pt-16'>
       <h1 class="text-5xl text-center font-bold">{{page.header}}</h1>
+      <h1 class="text-5xl text-center font-bold">TESTEST</h1>
     <div v-if="mount" class="p-10">
 
     <FullCalendar :options='calendarOptions' />
@@ -43,7 +44,6 @@ export default {
   },
   mounted(){
       let events = this.page.events
-    //   this.calendarOptions.initialEvents.push(events[0])
       events.forEach(e => {
           this.calendarOptions.initialEvents.push({title:e.title, start:e.start + ''})
       });
@@ -53,9 +53,3 @@ export default {
 }
 </script>
 
-<style scoped>
-  .app {
-    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-    font-size: 14px;
-  }
-</style>
