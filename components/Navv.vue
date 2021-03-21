@@ -38,33 +38,31 @@
       <ul class="list-reset lg:flex justify-end flex-1 items-center">
         
         <li class="mr-3">
-          <a href="/about"
+          <NuxtLink to="/about"
             class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
             
-            >About</a
+            >About</NuxtLink
           >
         </li>
         <li class="mr-3">
-          <a href="/fullprogramme"
+          <NuxtLink to="/fullprogramme"
             class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
             
-            >Full Programme</a
+            >Full Programme</NuxtLink
           >
         </li>
         <li class="mr-3">
-          <a
+          <NuxtLink
             class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-            href="/meetTheSpeakers"
-            >Meet The Speakers</a
+            to="/meetTheSpeakers"
+            >Meet The Speakers</NuxtLink
           >
         </li>
         <li class="mr-3">
-          <a
-            class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-            href="/archives"
-            >Archives</a
-          >
+          <NuxtLink  class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+            to="/archives">Archives</NuxtLink>
         </li>
+    
       </ul>
     </div>
   </nav>

@@ -1,5 +1,5 @@
 <template>
-  <div class=' h-full pt-16'>
+  <div v-if="page" class=' h-full pt-16'>
       <h1 class="text-5xl text-center font-bold">{{page.header}}</h1>
     <div v-if="mount" class="p-10">
 
