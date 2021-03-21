@@ -1,30 +1,42 @@
 {
-  "name": "testUNDP",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
-  },
-  "dependencies": {
-    "@fullcalendar/interaction": "^5.5.0",
-    "@fullcalendar/timegrid": "^5.5.1",
-    "@fullcalendar/vue": "^5.5.0",
-    "@nuxtjs/axios": "^5.13.1",
-    "@nuxtjs/pwa": "^3.0.2",
-    "@nuxtjs/sanity": "^0.7.1",
-    "@sanity/image-url": "^0.140.22",
-    "core-js": "^3.9.1",
-    "gsap": "^3.6.0",
-    "nuxt": "^2.15.3",
-    "nuxt-compress": "^4.0.0",
-    "postcss": "^7.0.32",
-    "three": "^0.126.1",
-    "three-orbit-controls": "^82.1.0"
-  },
-  "devDependencies": {
-    "@nuxtjs/tailwindcss": "^4.0.1"
-  }
+	"name": "testundp",
+	"version": "1.0.0",
+	"private": true,
+	"scripts": {
+		"dev": "nuxt",
+		"build": "nuxt build",
+		"start": "nuxt start",
+		"generate": "nuxt generate",
+		"test": "jest",
+		"prettier": "prettier --write --single-quote --trailing-comma=all",
+		"lint": "npm run lint:js && npm run lint:css && npm run lint:prettier",
+		"lint:js": "",
+		"lint:css": "",
+		"lint:prettier": ""
+	},
+	"dependencies": {
+		"@fullcalendar/timegrid": "^5.5.1",
+		"@fullcalendar/vue": "^5.5.0",
+		"@nuxtjs/axios": "^5.13.1",
+		"@nuxtjs/pwa": "^3.0.2",
+		"@nuxtjs/sanity": "^0.7.1",
+		"@sanity/image-url": "^0.140.22",
+		"core-js": "^3.6.5",
+		"gsap": "^3.6.0",
+		"nuxt": "^2.14.6",
+		"nuxt-compress": "^4.0.0",
+		"three": "^0.126.1",
+		"three-orbit-controls": "^82.1.0"
+	},
+	"devDependencies": {
+		"@nuxtjs/tailwindcss": "^3.1.0",
+		"@vue/test-utils": "^1.1.0",
+		"babel-core": "7.0.0-bridge.0",
+		"babel-jest": "^26.5.0",
+		"eslint-config-prettier": "^6.12.0",
+		"eslint-plugin-prettier": "^3.1.4",
+		"jest": "^26.5.0",
+		"prettier": "^2.1.2",
+		"vue-jest": "^3.0.4"
+	}
 }
