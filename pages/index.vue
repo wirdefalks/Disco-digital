@@ -15,6 +15,7 @@
 
 <script>
 import { groq } from '@nuxtjs/sanity'
+import { SanityContent } from '@nuxtjs/sanity/dist/components/sanity-content'
 
 const query = groq`*[_type=="home"][1]{
   text,about,
@@ -22,6 +23,8 @@ const query = groq`*[_type=="home"][1]{
 }`
 
 export default {
+    components: { SanityContent },
+
   async asyncData({ $sanity }) {
     return { page: await $sanity.fetch(query) }
   },

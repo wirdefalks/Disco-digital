@@ -47,7 +47,6 @@ export default {
       events.forEach(e => {
           this.calendarOptions.initialEvents.push({title:e.title, start:e.start + ''})
       });
-      console.log( this.calendarOptions.initialEvents);
       this.mount = true
   }
 }

@@ -3,12 +3,12 @@
     class="flex items-center justify-between absolute flex-wrap bg-green-100 p-2 shadow w-full z-10 top-0"
   >
     <div class="flex items-center flex-shrink-0 text-white mr-6">
-      <a
+      <NuxtLink
         class="text-blue-800 no-underline hover:text-white hover:no-underline"
-        href="/"
+        to="/"
       >
         <span class="text-2xl pl-2"><i class="em em-grinning"></i> Events</span>
-      </a>
+      </NuxtLink>
     </div>
 
     <div class="block lg:hidden">

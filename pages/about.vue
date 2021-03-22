@@ -11,10 +11,10 @@
 <script>
 import { groq } from '@nuxtjs/sanity'
 
-const query = groq`*[_type=="about"][0]{
+const query = groq`*[_type=="about"]{
   text,
   "mainImage": mainImage.asset->url,
-}`
+}|order(_createdAt desc)[0]`
 
 export default {
   async asyncData({ $sanity }) {
