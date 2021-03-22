@@ -23,8 +23,7 @@ export default {
 
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
+  plugins: ['~/plugins/preview.client.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -49,6 +48,7 @@ export default {
 sanity: {
   projectId: 'ygcad2ic',
   dataset:'production',
-  minimal: true
+  minimal: true,
+  useCdn: false,
   },
 }
