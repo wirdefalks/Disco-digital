@@ -7,15 +7,16 @@
     <SanityContent
       class="max-w-2xl space-y-2 text-base text-left"
       :blocks="page.about"
+      
     />
     </div>
-   
   </div>
 </template>
 
 <script>
 import { groq } from '@nuxtjs/sanity'
-import { SanityContent } from '@nuxtjs/sanity/dist/components/sanity-content'
+// import { SanityContent } from '@nuxtjs/sanity/dist/components/sanity-content'
+  // import the styles
 
 const query = groq`*[_type=="home"][1]{
   text,about,
@@ -23,12 +24,17 @@ const query = groq`*[_type=="home"][1]{
 }`
 
 export default {
-    components: { SanityContent },
+    // components: { SanityContent },
 
   async asyncData({ $sanity }) {
     return { page: await $sanity.fetch(query) }
   },
-  methods: {},
+  
+  methods: {
+    logAlgo(){
+      console.log("algo");
+    }
+  }
 }
 </script>
 

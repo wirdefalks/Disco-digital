@@ -1,13 +1,15 @@
 <template>
   <nav
-    class="flex items-center justify-between absolute flex-wrap bg-green-100 p-2 shadow w-full z-10 top-0"
+    class="flex items-center justify-between absolute flex-wrap bg-transparent py-1 px-10 w-full z-10 top-0"
   >
     <div class="flex items-center flex-shrink-0 text-white mr-6">
       <NuxtLink
         class="text-blue-800 no-underline hover:text-white hover:no-underline"
         to="/"
       >
-        <span class="text-2xl pl-2"><i class="em em-grinning"></i> Events</span>
+        <span class="text-2xl font-bold pl-2"
+          ><i class="em em-grinning"></i> Events</span
+        >
       </NuxtLink>
     </div>
 
@@ -35,48 +37,102 @@
       ]"
       id="nav-content"
     >
-      <ul class="list-reset lg:flex justify-end flex-1 items-center">
-        
+      <ul
+        class="list-reset lg:flex justify-end flex-1 items-center uppercase text-xs text-black"
+      >
         <li class="mr-3">
-          <NuxtLink to="/about"
-            class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-            
+          <NuxtLink
+            to="/about"
+            class="inline-block no-underline transition-all duration-200 hover:text-blue-800 py-2 px-4"
             >About</NuxtLink
           >
         </li>
         <li class="mr-3">
-          <NuxtLink to="/fullprogramme"
-            class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-            
+          <NuxtLink
+            to="/fullprogramme"
+            class="inline-block no-underline transition-all duration-200 hover:text-blue-800 py-2 px-4"
             >Full Programme</NuxtLink
           >
         </li>
         <li class="mr-3">
           <NuxtLink
-            class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+            class="inline-block no-underline transition-all duration-200 hover:text-blue-800 py-2 px-4"
             to="/meetTheSpeakers"
             >Meet The Speakers</NuxtLink
           >
         </li>
         <li class="mr-3">
-          <NuxtLink  class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-            to="/archives">Archives</NuxtLink>
+          <NuxtLink
+            class="inline-block no-underline transition-all duration-200 hover:text-blue-800 py-2 px-4"
+            to="/archives"
+            >Archives</NuxtLink
+          >
         </li>
-    
+        <li class="mr-3">
+          <NuxtLink
+            class="inline-block no-underline transition-all duration-200 hover:text-blue-800 py-2 px-4"
+            to="/search"
+            >search</NuxtLink
+          >
+        </li>
+  
+        <div v-for="lin in xtraLinks" :key="lin.name">
+          <li class="mr-3">
+            <NuxtLink
+              class="inline-block no-underline transition-all duration-200 hover:text-blue-800 py-2 px-4"
+              :to="'/pages/' + lin.name"
+              >{{ lin.name }}</NuxtLink
+            >
+          </li>
+           </div>
+       
       </ul>
+  <Categories></Categories>
     </div>
   </nav>
 </template>
 
 <script>
+import { groq } from "@nuxtjs/sanity";
+import { SanityContent } from "@nuxtjs/sanity/dist/components/sanity-content";
+import Categories from './Categories.vue';
+const query = groq`*[_type=="xtraPage"]`;
+
 export default {
-  data: () => ({ toggle: false }),
+  components: { SanityContent, Categories },
+
+  async asyncData({ $sanity }) {
+    const page = await $sanity.fetch(query);
+  },
+  data: () => ({
+    toggle: false,
+    xtraLinks:'',
+    navLinks: [
+      { name: "art", link: "/pages/art" },
+      { name: "soul", link: "/pages/soul" },
+    ],
+  }),
   methods: {
     toggleNav() {
-      this.toggle = !this.toggle
+      this.toggle = !this.toggle;
     },
-  },
-}
+     async fetchSomething() {
+    const data = await this.$axios.$get('https://ygcad2ic.api.sanity.io/v1/data/query/production?query=*%5B_type%3D%3D%22xtraPage%22%5D')
+    this.xtraLinks = data.result
+  }
+  },mounted(){
+    this.fetchSomething()
+  }
+};
 </script>
 
-<style></style>
+<style>
+nav * {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+a.nuxt-link-exact-active {
+  color: #392f70;
+  border-bottom: 1px solid gray;
+}
+</style>

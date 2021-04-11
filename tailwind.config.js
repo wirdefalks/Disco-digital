@@ -256,7 +256,19 @@
 			'-16': '-4rem',
 		},
 
-		extend: {},
+		extend: {
+			gridTemplateColumns: {
+			// Simple 16 column grid
+		   '16': 'repeat(16, minmax(0, 1fr))',
+			'brokenCol':'grid-template-columns: 3fr 6fr 1fr 5fr 10fr 2fr',
+			
+
+			// Complex site-specific column configuration
+		   'footer': '200px minmax(900px, 1fr) 100px',
+		  },
+		gridTemplateRows:{
+			'brokenRow': '100px auto 15px auto auto',
+		}},
 	},
 
 	variants: {},
