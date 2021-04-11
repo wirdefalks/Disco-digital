@@ -18,7 +18,7 @@ import { groq } from '@nuxtjs/sanity'
 // import { SanityContent } from '@nuxtjs/sanity/dist/components/sanity-content'
   // import the styles
 
-const query = groq`*[_type=="home"][1]{
+const query = groq`*[_type=="home"][0]{
   text,about,
   "logo": logo.asset->url,
 }`

@@ -4,7 +4,7 @@
   >
     <div class="flex items-center flex-shrink-0 text-white mr-6">
       <NuxtLink
-        class="text-blue-800 no-underline hover:text-white hover:no-underline"
+        class="text-blue-800 no-underline hover:text-green-600 hover:no-underline"
         to="/"
       >
         <span class="text-2xl font-bold pl-2"
@@ -117,7 +117,7 @@ export default {
       this.toggle = !this.toggle;
     },
      async fetchSomething() {
-    const data = await this.$axios.$get('https://ygcad2ic.api.sanity.io/v1/data/query/production?query=*%5B_type%3D%3D%22xtraPage%22%5D')
+    const data = await this.$axios.$get('https://qp66vak1.api.sanity.io/v1/data/query/production?query=*%5B_type%3D%3D%22xtraPage%22%5D')
     this.xtraLinks = data.result
   }
   },mounted(){

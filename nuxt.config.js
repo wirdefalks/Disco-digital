@@ -46,7 +46,7 @@ export default {
 },
 
 sanity: {
-  projectId: 'ygcad2ic',
+  projectId: 'qp66vak1',
   dataset:'production',
   minimal: true,
   useCdn: false,
