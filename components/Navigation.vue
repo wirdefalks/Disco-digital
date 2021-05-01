@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="flex items-center justify-between absolute flex-wrap bg-transparent py-1 px-10 w-full z-10 top-0"
+    class="flex items-center justify-between absolute flex-wrap bg-white py-1 px-10 w-full z-10 top-0"
   >
     <div class="flex items-center flex-shrink-0 text-white mr-6">
       <NuxtLink
@@ -8,7 +8,7 @@
         to="/"
       >
         <span class="text-2xl font-bold pl-2"
-          ><i class="em em-grinning"></i> Events</span
+          ><i class="em em-grinning"></i> Disco Digital</span
         >
       </NuxtLink>
     </div>
@@ -49,27 +49,6 @@
         </li>
         <li class="mr-3">
           <NuxtLink
-            to="/fullprogramme"
-            class="inline-block no-underline transition-all duration-200 hover:text-blue-800 py-2 px-4"
-            >Full Programme</NuxtLink
-          >
-        </li>
-        <li class="mr-3">
-          <NuxtLink
-            class="inline-block no-underline transition-all duration-200 hover:text-blue-800 py-2 px-4"
-            to="/meetTheSpeakers"
-            >Meet The Speakers</NuxtLink
-          >
-        </li>
-        <li class="mr-3">
-          <NuxtLink
-            class="inline-block no-underline transition-all duration-200 hover:text-blue-800 py-2 px-4"
-            to="/archives"
-            >Archives</NuxtLink
-          >
-        </li>
-        <li class="mr-3">
-          <NuxtLink
             class="inline-block no-underline transition-all duration-200 hover:text-blue-800 py-2 px-4"
             to="/search"
             >search</NuxtLink
@@ -87,8 +66,7 @@
            </div>
        
       </ul>
-  <Categories></Categories>
-    </div>
+      </div>
   </nav>
 </template>
 
