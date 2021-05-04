@@ -1,16 +1,15 @@
-<template>
-  <SanityImage :asset-id="asset._ref" auto="format"></SanityImage>
+<template >
+  <div>
+ <SanityImage
+    :asset-id="asset._ref"
+    auto="format"
+  />  </div>
 </template>
 
 <script>
-
-
 export default {
-    name:"CustomComponent",
-    props: ['asset']
-   }
+  name: 'CustomComponent',
+  props: ['asset']
+}
 </script>
 
-<style>
-
-</style>

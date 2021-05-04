@@ -12,6 +12,7 @@
         <Filters />
       </div>
     </div>
+    <Footer />
   </div>
 </template>
 

@@ -9,7 +9,8 @@
           provident consequatur! Ducimus vero accusamus nemo, debitis facere qui
           unde rerum.
         </p>
-        <div class="text-right">
+        <ToggleAccordion />
+        <!-- <div class="text-right">
           <button
             @click="toggleAccordion('-')"
             class="m-3 px-5 rounded-md bg-PrimaryGreen"
@@ -22,7 +23,7 @@
           >
             + expande alla
           </button>
-        </div>
+        </div> -->
 
         <div
           class="flex flex-col w-full text-left mt-5 space-y-3 text-PrimaryGreen"
@@ -55,7 +56,8 @@
         </div>
       </div>
     </div>
-    <div class="flex flex-col justify-start grid-cols-1 bg-ContainerGray mt-10">
+
+    <!-- <div class="flex flex-col justify-start grid-cols-1 bg-ContainerGray mt-10">
       <div class="p-10 space-y-4">
         <p>Disco Digitalis semans skapte hit!</p>
         <div class="text-PrimaryGreen flex">
@@ -124,56 +126,33 @@
           <span class="mx-2">| </span> Tag2
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
 import { groq } from "@nuxtjs/sanity";
+import minMax from "../mixins/minMax";
 // call to all the posts with type == category
 // on the response we get categories with titles and subcategories
 // []->{} = this syntax allows to iterate through an array,
 // and bring a specific property. Label in this case
 
-const query = groq`*[_type=="category"]{
+const query = groq`{'categories': *[_type=="category"]{
   ..., 
   subcategory[]->{
    ...
   }
-}`;
+}, 'lastPost': *[_type == "post"] | order(_createdAt asc)[0]{
+  ...,
+  author->{name},
+}}`;
 
 export default {
   async asyncData({ $sanity }) {
-    return { categories: await $sanity.fetch(query) };
+    return await $sanity.fetch(query);
   },
-  methods: {
-    characterItemClick(characterIndex) {
-      const characterInfoElement = document.querySelector(
-        '[data-character-id="' + characterIndex + '"]'
-      );
-      let p = characterInfoElement.previousElementSibling;
-      if (characterInfoElement.classList.contains("block")) {
-        characterInfoElement.classList.replace("block", "hidden");
-        p.classList.replace("hideI", "showI");
-      } else {
-        characterInfoElement.classList.replace("hidden", "block");
-        p.classList.replace("showI", "hideI");
-      }
-    },
-    toggleAccordion(action) {
-      let accordions = document.querySelectorAll(".accordion");
-      action === "+"
-        ? [...accordions].forEach((x) => {
-            x.classList.remove("hidden");
-            x.previousElementSibling.classList.replace("showI", "hideI")
-          })
-        : [...accordions].forEach((x) => {
-            x.classList.add("hidden");
-            x.previousElementSibling.classList.replace("hideI", "showI")
-          });
-    },
-    returndate: (a) => new Date(a).toLocaleString("en-EN"),
-  },
+  mixins: [ minMax ],
 };
 </script>
 <style>
