@@ -1,7 +1,7 @@
 <template>
   <div class="w-full h-16 flex justify-between shadow bg-white">
       <div class="flex p-5">
-          <img src="https://via.placeholder.com/12" alt="" class="h-8 w-8 mx-3">
+          <img src="../static/logo.png" alt="" class="h-8 w-8 mx-3">
           <h3>Disco Digital</h3>
       </div>
       <div class="p-5 text-PrimaryGreen">

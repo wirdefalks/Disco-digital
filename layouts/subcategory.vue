@@ -8,7 +8,6 @@
       </div>
       <div class="mx-auto w-2/12">
         <SearchComponent />
-         <SubMenu />
            <Filters />
       </div>
     </div>

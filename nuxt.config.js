@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'testUNDP',
+    title: 'Disco Digital',
     htmlAttrs: {
       lang: 'en'
     },

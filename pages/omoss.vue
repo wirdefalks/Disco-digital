@@ -12,7 +12,7 @@
 <script>
 import { groq } from '@nuxtjs/sanity'
 
-const query = groq`*[_type=="about"]{
+const query = groq`*[_type=="omoss"]{
   text,
   "mainImage": mainImage.asset->url,
 }|order(_createdAt desc)[0]`
