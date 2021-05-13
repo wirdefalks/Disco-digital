@@ -81,7 +81,7 @@ export default {
         ? this.linkse = !this.linkse
         : setTimeout(() => {
             this.linkse = !this.linkse;
-          }, 300);
+          }, 3000);
     },
   },
   async fetch() {
