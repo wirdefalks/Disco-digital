@@ -3,14 +3,12 @@
     class="flex items-center justify-between absolute flex-wrap bg-white py-1 px-10 w-full z-10 top-0"
   >
     <div class="flex items-center flex-shrink-0 text-white mr-6">
-      <img src="../static/logo.png" alt="" class="h-8 w-8 mx-3">
+      <img src="../static/logo.png" alt="" class="h-8 w-8 mx-3" />
       <NuxtLink
         class="text-blue-800 no-underline logo hover:text-green-600 hover:no-underline"
         to="/"
       >
-        <span class="text-2xl font-bold pl-2"
-          >Disco Digital</span
-        >
+        <span class="text-2xl font-bold pl-2">Disco Digital</span>
       </NuxtLink>
     </div>
 
@@ -39,7 +37,10 @@
       id="nav-content"
     >
       <ul
-        :class="[linkse ? 'opacity-100' : 'opacity-0 sm:hidden', 'pt-4 lg:pt-0 lg:opacity-100 list-reset lg:flex justify-end flex-1 items-center uppercase text-xs text-PrimaryGreen']"
+        :class="[
+          linkse ? 'opacity-100' : 'opacity-0 sm:hidden',
+          'pt-4 lg:pt-0 lg:opacity-100 list-reset lg:flex justify-end flex-1 items-center uppercase text-xs text-PrimaryGreen',
+        ]"
       >
         <li class="mr-3">
           <NuxtLink
@@ -47,7 +48,7 @@
             class="inline-block no-underline transition-all duration-200 hover:text-blue-800 py-2 px-4"
             >Om Oss</NuxtLink
           >
-        </li>  
+        </li>
         <div v-for="lin in xtraLinks" :key="lin.name">
           <li class="mr-3">
             <NuxtLink
@@ -56,10 +57,9 @@
               >{{ lin.name }}</NuxtLink
             >
           </li>
-           </div>
-       
+        </div>
       </ul>
-      </div>
+    </div>
   </nav>
 </template>
 
@@ -71,22 +71,23 @@ const query = groq`*[_type=="xtraPage"]`;
 export default {
   data: () => ({
     toggle: false,
-    xtraLinks:'',
+    xtraLinks: "",
     linkse: false,
   }),
   methods: {
     toggleNav() {
       this.toggle = !this.toggle;
-      this.linkse ? this.linkse = !this.linkse 
-      : setTimeout(()=> {
-        this.linkse = !this.linkse
-      }, 300)
+      this.linkse
+        ? (this.linkse = !this.linkse)
+        : setTimeout(() => {
+            this.linkse = !this.linkse;
+          }, 300);
     },
-     async fetch() {
-    this.xtraLinks = await this.$sanity.fetch(query)
-    this.xtraLinks = xtraLinks
-  }
-  }
+  },
+  async fetch() {
+    this.xtraLinks = await this.$sanity.fetch(query);
+    this.xtraLinks = xtraLinks;
+  },
 };
 </script>
 
@@ -96,11 +97,11 @@ nav * {
 }
 
 #nav-content {
-  transition: all .31s;
+  transition: all 0.31s;
 }
 
 #nav-content ul {
-  transition: all .11s;
+  transition: all 0.11s;
 }
 
 a.nuxt-link-exact-active {
