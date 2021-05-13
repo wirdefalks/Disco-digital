@@ -78,7 +78,7 @@ export default {
     toggleNav() {
       this.toggle = !this.toggle;
       this.linkse
-        ? (this.linkse = !this.linkse)
+        ? this.linkse = !this.linkse
         : setTimeout(() => {
             this.linkse = !this.linkse;
           }, 300);
