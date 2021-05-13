@@ -59,7 +59,7 @@
         </div>
           <li class="mr-3">
           <NuxtLink
-            to="/about"
+            to="/omoss"
             class="inline-block no-underline transition-all duration-200 hover:text-green-900 py-2 px-4"
             >Om oss</NuxtLink
           >
@@ -75,7 +75,6 @@ import { groq } from "@nuxtjs/sanity";
 const query = groq`*[_type=="xtraPage"]`;
 
 export default {
-  components: { SanityContent },
   data: () => ({
     toggle: false,
     xtraLinks: "",
