@@ -13,6 +13,7 @@
         v-for="(post, index) in page.post"
         :post="post"
         :index="index"
+        :subCategoryName="page.id"
         :key="post._id"
       />
     </div>
@@ -24,11 +25,8 @@ import { groq } from "@nuxtjs/sanity";
 import CustomComponent from "./../../components/CustomComponent";
 import ItalicComponent from "./../../components/ItalicComponent";
 import GreenComponent from "./../../components/GreenComponent";
-import SinglePost from "./../../components/SinglePost";
 
 export default {
-  layout: "subcategory",
-  components: { SinglePost },
   data() {
     return {
       serializers: {

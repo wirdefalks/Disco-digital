@@ -19,20 +19,6 @@ import minMax from '../mixins/minMax'
 export default {
     component: 'ToggleAccordion',
     mixins: [ minMax ],
-    methods:{
-         toggleAccordion(action) {
-      let accordions = document.querySelectorAll(".accordion");
-      action === "+" ?
-        [...accordions].forEach((x) => {
-          x.classList.remove("hidden");
-          x.previousElementSibling.classList.replace("showI", "hideI");
-        }) :
-        [...accordions].forEach((x) => {
-          x.classList.add("hidden");
-          x.previousElementSibling.classList.replace("hideI", "showI");
-        });
-    },
-    }
 };
 </script>
 
