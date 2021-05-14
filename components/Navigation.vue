@@ -36,16 +36,6 @@
       <ul
         :class="[linkse ? ' opacity-100 ': ' opacity-0 sm:hidden  ','pt-4 lg:pt-0 lg:opacity-100 list-reset lg:flex justify-end flex-1 items-center uppercase text-xs text-PrimaryGreen' ]"
       >
-      
-     
-        <li class="mr-3">
-          <NuxtLink
-            class="inline-block no-underline transition-all duration-200 hover:text-green-900 py-2 px-4"
-            to="/search"
-            >search</NuxtLink
-          >
-          <span class=" hidden lg:inline-block">|</span>
-        </li>
 
         <div v-for="lin in xtraLinks" :key="lin.name">
           <li class="mr-3">

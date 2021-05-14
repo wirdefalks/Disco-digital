@@ -10,7 +10,7 @@
       <ToggleAccordion />
       <div class="border-b border-black"></div>
       <SinglePost
-        v-for="(post, index) in page.post"
+        v-for="(post, index) in page.posts"
         :post="post"
         :index="index"
         :subCategoryName="page.id"
@@ -41,13 +41,10 @@ export default {
     };
   },
   async asyncData({ $sanity, route }) {
-    const subcategory = await $sanity.fetch(groq`*[slug.current=="${route.params.id}"]{
-  ...,
-  "post": *[_type=='post' && references(^._id)]{ 
-  	...,
-    author->{name},
-	}
-}`);
+    const subcategory = await $sanity.fetch(
+      groq`*[slug.current=="${route.params.id}"]{..., "posts": posts[]
+      { _type == 'reference' => @->{...,author->{name}}}}`
+    );
     const page = subcategory[0];
     return { page };
   },

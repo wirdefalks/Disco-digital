@@ -3,6 +3,7 @@
     <div class="flex flex-col justify-start bg-ContainerGray">
       <div class="border-b border-black"></div>
       <p
+      v-if="!isLast"
         class="text-PrimaryGreen p-6 cursor-pointer ml-0 font-bold border-black showI"
         @click="characterItemClick(index)"
       >
@@ -10,17 +11,25 @@
       </p>
       <div
         :data-character-id="index"
-        class="bg-gray-100 p-10 space-y-4 hidden accordion"
+        :class="[
+          isLast ? '' : 'hidden accordion',
+          'bg-gray-100 p-10 space-y-4',
+        ]"
       >
-      <small class="text-PrimaryGreen">{{ subCategoryName }}</small>
-        <h1 class="text-4xl text-left font-extrabold ">
+        <small class="text-PrimaryGreen">{{ subCategoryName }}</small>
+        <h1 class="text-4xl text-left font-extrabold">
           {{ post.title }}
         </h1>
         <p class="text-gray-500">
           {{ returnDate(post.publishedAt) }} av {{ post.author.name }}
         </p>
         <div class="text-right">
-          <button @click="printPost(post._id)" class="m-3 px-5 rounded-md bg-PrimaryGreen">Skry ut</button>
+          <button
+            @click="printPost(post._id)"
+            class="m-3 px-5 rounded-md bg-PrimaryGreen"
+          >
+            Skry ut
+          </button>
         </div>
         <SanityContent
           class="space-y-2 text-base text-left"
@@ -46,7 +55,7 @@ import minMax from "../mixins/minMax";
 export default {
   layout: "subcategory",
   mixins: [minMax],
-  props: ["post", "index", "subCategoryName"],
+  props: ["post", "index", "subCategoryName", "isLast"],
   data() {
     return {
       serializers: {
@@ -62,9 +71,9 @@ export default {
   },
   methods: {
     printPost(id) {
-      this.$router.push(`/printmode/${id}`)
-    }
-  }
+      this.$router.push(`/printmode/${id}`);
+    },
+  },
 };
 </script>
 
