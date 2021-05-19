@@ -16,7 +16,8 @@
           'bg-gray-100 p-10 space-y-4',
         ]"
       >
-        <small class="text-PrimaryGreen">{{ subCategoryName }}</small>
+
+        <small v-for="subc in post.subcategory" :key="subc.id" class="text-PrimaryGreen">{{ subc.id }}</small>
         <h1 class="text-4xl text-left font-extrabold">
           {{ post.title }}
         </h1>
@@ -38,7 +39,7 @@
         />
         <div class="flex text-PrimaryGreen">
           <h4 v-for="(tag, i) in post.tags" :key="i">
-            {{ tag.label }}
+            {{ tag.label || tag }}
             <span class="text-black"> | </span>
           </h4>
         </div>
@@ -51,7 +52,9 @@
 import CustomComponent from "../components/CustomComponent";
 import ItalicComponent from "../components/ItalicComponent";
 import GreenComponent from "../components/GreenComponent";
+import RenderVideo from "../components/RenderVideo";
 import minMax from "../mixins/minMax";
+
 export default {
   layout: "subcategory",
   mixins: [minMax],
@@ -61,6 +64,7 @@ export default {
       serializers: {
         types: {
           image: CustomComponent,
+          video: RenderVideo,
         },
         marks: {
           underline: ItalicComponent,
@@ -73,7 +77,10 @@ export default {
     printPost(id) {
       this.$router.push(`/printmode/${id}`);
     },
-  },
+    
+  },mounted(){
+    console.log(this.post)
+  }
 };
 </script>
 

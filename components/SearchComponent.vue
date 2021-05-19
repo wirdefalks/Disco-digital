@@ -29,17 +29,19 @@
 
 <script>
 export default {
-    data() {
-        return {
-            searchValue: "",
-        };
+  data() {
+    return {
+      searchValue: "",
+      isSearch:true
+    };
+  },
+  methods: {
+    searchTerm() {
+      this.$store.commit("SET_searchOrFilter", this.isSearch);
+      this.$store.commit("SET_search", this.searchValue);
+      this.$router.push("/search");
     },
-    methods: {
-        searchTerm() {
-            this.$store.commit("SET_search", this.searchValue);
-            this.$router.push('/search');
-        }
-    },
+  },
 };
 </script>
 

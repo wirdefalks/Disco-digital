@@ -3,7 +3,7 @@
     <Navigation />
     <div class="flex pt-20 bg-BackgroundGray">
       <div class="grid w-9/12 mx-auto">
-        <Nuxt class="w-9/12 mx-auto" />
+        <Nuxt style="min-height: 80.5vh;" class="w-9/12 mx-auto" />
       </div>
       <div class="mx-auto w-2/12">
         <SearchComponent />

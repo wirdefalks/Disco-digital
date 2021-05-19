@@ -6,12 +6,12 @@ export default {
   head: {
     title: 'Disco Digital',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'sv'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: 'Har du ibland problem med Canvas, Word, Powerpoint eller Zoom? Få lösningen eller tipset du letar efter i vår resurskatalog Disco Digital som betyder att lära sig digitalt' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },

@@ -14,7 +14,7 @@ export default {
       }
     },
     toggleAccordion(action) {
-      console.log(123123);
+      
       let accordions = document.querySelectorAll(".accordion");
       action === "+" ?
         [...accordions].forEach((x) => {
