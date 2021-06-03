@@ -1,6 +1,6 @@
 <template>
-  <div class="grid h-screen place-items-center grid-cols-1">
-    <h1 class="text-5xl text-center font-bold">{{ page.header }}</h1>
+ <div class="flex flex-col justify-start bg-ContainerGray">
+      <div class="p-5">    <h1 class="text-5xl text-center font-bold">{{ page.header }}</h1>
 
     <div
       v-for="content in page.contentPosts"
@@ -13,6 +13,7 @@
         
       />
     </div>
+  </div>
   </div>
 </template>
 

@@ -22,7 +22,7 @@
           {{ post.title }}
         </h1>
         <p class="text-gray-500">
-          {{ returnDate(post.publishedAt) }} av {{ post.author.name }}
+          {{ returnDate(post._createdAt) }} av {{ post.author.name }}
         </p>
         <div class="text-right">
           <button
@@ -37,12 +37,8 @@
           :blocks="post.body"
           :serializers="serializers"
         />
-        <div class="flex text-PrimaryGreen">
-          <h4 v-for="(tag, i) in post.tags" :key="i">
-            {{ tag.label || tag }}
-            <span class="text-black"> | </span>
-          </h4>
-        </div>
+       
+          <div v-html="returnTags(post.tags)"></div>
       </div>
     </div>
   </div>
@@ -53,6 +49,7 @@ import CustomComponent from "../components/CustomComponent";
 import ItalicComponent from "../components/ItalicComponent";
 import GreenComponent from "../components/GreenComponent";
 import RenderVideo from "../components/RenderVideo";
+import HtmlComponent from "../components/HtmlComponent";
 import minMax from "../mixins/minMax";
 
 export default {
@@ -65,6 +62,8 @@ export default {
         types: {
           image: CustomComponent,
           video: RenderVideo,
+          html: HtmlComponent,
+
         },
         marks: {
           underline: ItalicComponent,
@@ -77,9 +76,39 @@ export default {
     printPost(id) {
       this.$router.push(`/printmode/${id}`);
     },
+     returnTags(tags) {
+    let a = [],
+      b = [],
+      c = [];
+    tags.forEach((x) => {
+      if (x.value == "beginner" || x.value == "advanced") {
+        a.push(
+          `<span class="text-back"> [</span>
+<span class=" text-PrimaryGreen">` +
+            x.value +
+            '</span> <span class="text-back">]</span>'
+        );
+      }
+      if (x.value == "student" || x.value == "teacher") {
+        b.push(
+          `<span class="text-back"> [</span>
+<span class=" text-PrimaryGreen">` +
+            x.value +
+            '</span> <span class="text-back">]</span>'
+        );
+      }
+      if (x.value == "kristianstad" || x.value == "malmoe") {
+        c.push(
+          `<span class="text-back"> [</span>
+<span class=" text-PrimaryGreen">` +
+            x.value +
+            '</span> <span class="text-back">]</span>'
+        );
+      }
+    });
+    return `<div class="grid"> <h4>Level : ${a}</h4>  <h4>I am a: ${b}</h4>  <h4>University: ${c}</h4> </div>`;
+  },
     
-  },mounted(){
-    console.log(this.post)
   }
 };
 </script>

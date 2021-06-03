@@ -1,10 +1,12 @@
 <template>
   <div>
-    <div class="grid place-items-center  h-screen">
-      <h1>test</h1>
+   <div class="flex flex-col justify-start bg-ContainerGray min-h-full">
+      <div class="p-5">
+     
     <h1 class=" text-5xl text-center font-bold  ">{{ page.title }}</h1>
     <SanityContent :blocks="page.aboutInfo" />
     </div>
+  </div>
   </div>
 </template>
 

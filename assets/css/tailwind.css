@@ -4,69 +4,93 @@
 
 .btn:focus {
 
-	outline: 0;
+  outline: 0;
 
 }
 
 
 .scene {
-	background-color: '#220022';
+  background-color: '#220022';
 }
 
 .flexcontainer {
 
-	@apply flex;
-	@apply items-center;
-	@apply justify-center;
+  @apply flex;
+  @apply items-center;
+  @apply justify-center;
 
 }
 
 .resizable {
 
-	resize: horizontal;
-	@apply overflow-auto;
+  resize: horizontal;
+  @apply overflow-auto;
 
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .hidescrollbar {
 
-	-ms-overflow-style: none;
-	/* IE and Edge */
-	scrollbar-width: none;
-	/* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 .hidescrollbar::-webkit-scrollbar {
 
-	display: none;
+  display: none;
 
 }
 
 /* customize scrollbar */
 ::-webkit-scrollbar {
 
-	width: 10px;
-	height: 10px;
+  width: 10px;
+  height: 10px;
 
 }
 
 ::-webkit-scrollbar-track {
 
-	background: rgba(86, 182, 214, 0.347);
+  background: gainsboro;
 
 }
 
 ::-webkit-scrollbar-thumb {
 
-	background: rgba(57, 36, 36, 0.925);
-	border-radius: 10px;
+  background: rgba(57, 36, 36, 0.925);
+  border-radius: 10px;
 
 }
 
 ::-webkit-scrollbar-thumb:hover {
 
-	background: rgb(214, 86, 144);
+  background: #51ab33;
+}
+
+button {
+  @apply px-5;
+  @apply py-1;
+  @apply m-3;
+  @apply transition-all;
+  @apply text-gray-100;
+  @apply duration-500;
+  @apply rounded-md;
+  @apply bg-PrimaryGreen;
+}
+
+button:hover {
+  @apply bg-white;
+  @apply shadow;
+  @apply border-PrimaryGreen;
+  @apply text-PrimaryGreen;
+}
+
+button:focus {
+  @apply text-gray-700;
+  outline: none !important;
+  @apply outline-none;
 }

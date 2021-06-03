@@ -42,8 +42,10 @@ export default {
   },
   async asyncData({ $sanity, route }) {
     const subcategory = await $sanity.fetch(
-      groq`*[slug.current=="${route.params.id}"]{..., "posts": posts[]
-      { _type == 'reference' => @->{...,"subcategory": *[_type=='subcategory' && references(^._id)]{ id },author->{name}}}}`
+      groq`*[slug.current=="${route.params.id}"]{
+        ...,
+         "posts": posts[]{ _type == 'reference' => @->{...,
+         "subcategory": *[_type=='subcategory' && references(^._id)]{ id },...,author->{name}}}}`
     );
     const page = subcategory[0];
     return { page };

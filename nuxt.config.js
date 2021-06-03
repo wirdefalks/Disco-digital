@@ -32,11 +32,15 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
 		// https://go.nuxtjs.dev/tailwindcss
+    '@aceforth/nuxt-optimized-images',
+
 		'@nuxtjs/tailwindcss',
 		'nuxt-compress',
 		'@nuxtjs/sanity',
 	],
-
+  optimizedImages: {
+    optimizeImages: true
+  },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: ['@nuxtjs/axios'],
 
