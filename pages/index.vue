@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="grid mb-4">
+    <div class="grid mb-4 shadow">
       <div class="flex flex-col justify-start bg-ContainerGray">
         <div class="p-10 text-center">
           <h1 class="text-5xl text-left font-extrabold">Valkommen!</h1>
@@ -16,7 +16,7 @@
           >
             <div v-for="(category, index) in categories" :key="category._id">
               <p
-                class="text-PrimaryGreen py-2 cursor-pointer ml-0 showI font-bold border-t border-black"
+                class="text-PrimaryGreen py-2 pt-5 cursor-pointer ml-0 showI font-bold border-t border-black"
                 @click="characterItemClick(index)"
               >
                 {{ category.title }}
@@ -40,7 +40,7 @@
       </div>
     </div>
     <!-- show last post -->
-    <SinglePost class="mb-12" :post="lastPost" :index="ind" :isLast="true" />
+    <SinglePost class="mb-12 shadow" :post="lastPost" :index="ind" :isLast="true" />
   </div>
 </template>
 

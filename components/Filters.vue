@@ -10,7 +10,7 @@
     />
     <button
       @click="searchFilter"
-      class="my-3 px-5 ml-auto rounded-md bg-PrimaryGreen"
+      class="my-3 px-5 ml-auto mr-0 rounded-md bg-PrimaryGreen"
     >
       spara
     </button>

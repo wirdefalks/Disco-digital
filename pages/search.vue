@@ -33,7 +33,7 @@ export default {
   methods: {
     logg(){
       if (this.found == 0 ) {
-        this.text = `<h1 >Mmm... not much over here...</h1>`
+        this.text = `<h1>Mmm... not much over here...</h1>`
       } else {
          this.text = ``
       }

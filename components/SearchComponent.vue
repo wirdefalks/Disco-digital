@@ -9,10 +9,13 @@
           placeholder="Search"
           @change="searchTerm"
         />
-        <div @click="searchTerm" class="bg-PrimaryGreen text-white">
+        <div
+          @click="searchTerm"
+          class="bg-PrimaryGreen hover:bg-green-700 px-1 py-1 m-1 transition-all duration-500 rounded-md text-white"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-4 w-4 m-3 fill-current"
+            class="h-4 w-4 m-2 fill-current"
             viewBox="0 0 512.005 512.005"
             style="enable-background: new 0 0 512.005 512.005"
             xml:space="preserve"
@@ -32,12 +35,12 @@ export default {
   data() {
     return {
       searchValue: "",
-      isSearch:true
+      isSearch: true,
     };
   },
   methods: {
     searchTerm() {
-      if(this.searchValue !== ""){
+      if (this.searchValue !== "") {
         this.$store.commit("SET_searchOrFilter", this.isSearch);
         this.$store.commit("SET_search", this.searchValue);
 

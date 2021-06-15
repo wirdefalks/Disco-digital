@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="absolute top-0 z-10 flex flex-wrap items-center justify-between w-full px-10 py-1 bg-white"
+    class="absolute top-0 z-10 flex flex-wrap shadow items-center justify-between w-full px-10 py-1 bg-white"
   >
     <div class="flex items-center flex-shrink-0 mr-6 text-white">
       <NuxtLink
@@ -13,21 +13,21 @@
       </NuxtLink>
     </div>
 
-    <div class="block lg:hidden">
-      <button
+    <div :class="[toggle ? 'block lg:hidden m-3 bg-white text-PrimaryGreen rounded-md border-bg-PrimaryGreen border':'block lg:hidden m-3  bg-PrimaryGreen rounded-md', ]">
+      <div
         id="nav-toggle"
         @click="toggleNav"
-        class="flex items-center px-3 py-2 text-gray-500 border border-gray-600 rounded focus:outline-none hover:text-black hover:border-black"
+        class="flex items-center px-3  py-2 rounded focus:outline-none hover:text-PrimaryGreen "
       >
         <svg
-          class="w-3 h-3 fill-current"
+          :class="[toggle ? 'text-PrimaryGreen':'fill-current', 'w-3 h-3  ']"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
         >
           <title>Menu</title>
           <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
         </svg>
-      </button>
+      </div>
     </div>
 
     <div

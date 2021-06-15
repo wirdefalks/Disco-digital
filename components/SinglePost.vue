@@ -1,7 +1,10 @@
 <template>
   <div>
-    <div class="flex flex-col justify-start bg-ContainerGray">
-      <div class="border-b border-black"></div>
+    <div class="flex flex-col justify-start bg-ContainerGray ">
+      <div  :class="[
+          index == 0 ? ' border-t border-black' : 'border-b border-black',
+          '',
+        ]"></div>
       <p
       v-if="!isLast"
         class="text-PrimaryGreen p-6 cursor-pointer ml-0 font-bold border-black showI"
@@ -37,9 +40,16 @@
           :blocks="post.body"
           :serializers="serializers"
         />
+          <div class="flex text-PrimaryGreen">
+            <small v-for="(tag, i) in post.tags" :key="i">
+               <span class="text-black">[</span>
+              {{ tag.label }}
+              <span class="text-black">] </span> 
+            </small>
+          </div>
        
-          <div v-html="returnTags(post.tags)"></div>
       </div>
+
     </div>
   </div>
 </template>
