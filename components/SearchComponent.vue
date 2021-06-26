@@ -6,7 +6,7 @@
           class="w-full bg-ContainerGray px-6 text-gray-700 leading-tight focus:outline-none"
           type="text"
           v-model="searchValue"
-          placeholder="Search"
+          placeholder="Sök"
           @change="searchTerm"
         />
         <div
@@ -43,7 +43,6 @@ export default {
       if (this.searchValue !== "") {
         this.$store.commit("SET_searchOrFilter", this.isSearch);
         this.$store.commit("SET_search", this.searchValue);
-
         this.$router.push("/search");
       }
     },

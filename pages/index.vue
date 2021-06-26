@@ -4,26 +4,22 @@
       <div class="flex flex-col justify-start bg-ContainerGray">
         <div class="p-10 text-center">
           <h1 class="text-5xl text-left font-extrabold">Valkommen!</h1>
-          <p class="text-left">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
-            expedita pariatur quia quos non reiciendis omnis vitae id? Pariatur,
-            provident consequatur! Ducimus vero accusamus nemo, debitis facere
-            qui unde rerum.
-          </p>
+
+          <SanityContent class="text-left" :blocks="home.about" />
           <ToggleAccordion />
           <div
             class="flex flex-col w-full text-left mt-5 space-y-3 text-PrimaryGreen"
           >
             <div v-for="(category, index) in categories" :key="category._id">
               <p
-                class="text-PrimaryGreen py-2 pt-5 cursor-pointer ml-0 showI font-bold border-t border-black"
+                class="text-PrimaryGreen py-3 pt-4 cursor-pointer ml-0 showI font-bold border-t border-black"
                 @click="characterItemClick(index)"
               >
                 {{ category.title }}
               </p>
               <div
                 :data-character-id="index"
-                class="space-y-4 hidden ml-3 accordion"
+                class="space-y-1 hidden ml-3 accordion"
               >
                 <div
                   v-for="subcategory in category.subcategory"
@@ -53,15 +49,17 @@ import minMax from "../mixins/minMax";
 // []->{} = this syntax allows to iterate through an array,
 // and bring a specific property. Label in this case
 
-const query = groq`{'categories': *[_type=="category"]{
-  ..., 
+const query = groq`{ 'home': *[_type == 'home'][0]{...},'categories': *[_type=="category"]| order(title asc){
+  ...,
   subcategory[]->{
    ...
   }
 }, 'lastPost': *[_type == "post"] | order(_createdAt asc)[0]{
   ...,
-  author->{name},
-}}`;
+  "tags": tags[].label,
+  author->{name}
+},
+}`;
 
 export default {
   async asyncData({ $sanity }) {

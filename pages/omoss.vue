@@ -1,8 +1,8 @@
 <template>
-  <div>
-   <div class="flex flex-col justify-start bg-ContainerGray min-h-full">
+  <div >
+   <div class="flex flex-col justify-start bg-ContainerGray mb-12 ">
       <div class="p-5">
-     
+
     <h1 class=" text-5xl text-center font-bold  ">{{ page.title }}</h1>
     <SanityContent :blocks="page.aboutInfo" />
     </div>

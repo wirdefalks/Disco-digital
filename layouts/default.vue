@@ -1,14 +1,16 @@
 <template>
   <div>
     <Navigation />
-    <div class="flex pt-20 bg-BackgroundGray">
-      <div class="grid w-9/12 mx-auto">
-        <Nuxt style="min-height: 70.5vh; margin-bottom: 10vh;" class="w-9/12 mx-auto" />
-      </div>
+    <div
+      class="flex flex-col-reverse pt-20 md:flex-col-reverse lg:flex-row bg-BackgroundGray min-h-100vh"
+    >
+      <Nuxt
+        class="mx-2 lg:mx-auto lg:w-8/12"
+      />
       <div class="mx-auto w-2/12">
-        <SearchComponent  class="shadow"/>
-        <QuickMenu class="shadow"/>
-        <Filters class="shadow"/>
+        <SearchComponent class="shadow" />
+        <QuickMenu class="shadow" />
+        <Filters class="shadow" />
       </div>
     </div>
     <Footer />
@@ -16,8 +18,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+
+};
 </script>
 
 <style>
+.min-h-100vh{
+  min-height: 91vh;
+}
 </style>

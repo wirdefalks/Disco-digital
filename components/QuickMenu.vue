@@ -1,11 +1,12 @@
 <template>
   <div class="flex flex-col bg-white p-4 my-3">
     <div>
-      <h4 class="py-2">Quick menu</h4>
+      <h4 class="py-2">Snabbmeny</h4>
       <div class="bg-ContainerGray flex items-center">
         <Treeselect
           v-model="valuex"
           :multiple="false"
+          placeholder="Välj"
           :options="options"
           @select="select"
         />
@@ -38,18 +39,25 @@ export default {
     },
   },
   async fetch() {
+    let subc
     const data = await this.$sanity.fetch(query);
-    this.options = data.map((x) => {
-      let subc = x.subcategory.map((x) => {
-        let id = x.id;
-        let label = x.id;
-        return {
-          id,
-          label,
-        };
+    if (data) {
+      this.options = data.map((x) => {
+        if(x.subcategory){
+            subc = x.subcategory.map((x) => {
+            let id = x.id;
+            let label = x.id;
+            return {
+              id,
+              label,
+            };
+          });
+        } else {
+          subc = []
+        }
+        return { id: x.title, label: x.title, children: subc };
       });
-      return { id: x.title, label: x.title, children: subc };
-    });
+    }
   },
 };
 </script>

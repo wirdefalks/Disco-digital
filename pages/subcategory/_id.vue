@@ -8,14 +8,13 @@
         </p>
       </div>
       <ToggleAccordion />
-      <div class=" "></div>
       <SinglePost
         v-for="(post, index) in page.posts"
         :post="post"
         :index="index"
         :subCategoryName="page.id"
         :key="post._id"
-        
+
       />
 
     </div>
@@ -30,24 +29,12 @@ import ItalicComponent from "./../../components/ItalicComponent";
 import GreenComponent from "./../../components/GreenComponent";
 
 export default {
-  data() {
-    return {
-      serializers: {
-        types: {
-          image: CustomComponent,
-        },
-        marks: {
-          underline: ItalicComponent,
-          highlight: GreenComponent,
-        },
-      },
-    };
-  },
   async asyncData({ $sanity, route }) {
     const subcategory = await $sanity.fetch(
       groq`*[slug.current=="${route.params.id}"]{
         ...,
          "posts": posts[]{ _type == 'reference' => @->{...,
+         "tags": tags[].label,
          "subcategory": *[_type=='subcategory' && references(^._id)]{ id },...,author->{name}}}}`
     );
     const page = subcategory[0];

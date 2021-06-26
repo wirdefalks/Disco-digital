@@ -144,6 +144,7 @@ module.exports = {
       "1/2": "50%",
       "3/4": "75%",
       full: "100%",
+      "100vh":"100vh"
     },
 
     maxHeight: {
@@ -177,6 +178,7 @@ module.exports = {
       "1/2": "50%",
       "3/4": "75%",
       full: "100%",
+
     },
 
     minWidth: {

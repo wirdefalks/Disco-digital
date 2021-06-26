@@ -4,15 +4,15 @@
       v-model="value"
       :multiple="true"
       :options="options"
-      placeholder="Filter by..."
+      placeholder="Filtrera..."
       :disable-branch-nodes="true"
-      
+
     />
     <button
       @click="searchFilter"
       class="my-3 px-5 ml-auto mr-0 rounded-md bg-PrimaryGreen"
     >
-      spara
+      Spara
     </button>
   </div>
 </template>
@@ -30,48 +30,44 @@ export default {
       isSearch:false,
       options: [
         {
-          id: "level",
-          label: "Level",
+          id: "Nivå",
+          label: "Nivå",
           children: [
             {
-              id: "beginner",
-              label: "Beginner",
+              id: "Nybörjare",
+              label: "Nybörjare",
             },
             {
-              id: "intermediate",
-              label: "Intermediate",
-            },
-            {
-              id: "advanced",
-              label: "Advanced",
+              id: "Avancerad",
+              label: "Avancerad",
             },
           ],
         },
         {
-          id: "iama",
-          label: "I Am A...",
+          id: "Jagar",
+          label: "Jag är...",
           children: [
             {
               id: "student",
               label: "Student",
             },
             {
-              id: "teacher",
-              label: "Teacher",
+              id: "Lärare",
+              label: "Lärare",
             },
           ],
         },
         {
-          id: "university",
-          label: "University",
+          id: "Lärostäte",
+          label: "Lärostäte",
           children: [
             {
               id: "kristianstad",
               label: "Kristianstad",
             },
             {
-              id: "malmoe",
-              label: "Malmoe",
+              id: "Malmö",
+              label: "Malmö",
             },
           ],
         },

@@ -4,13 +4,13 @@
       @click="toggleAccordion('-')"
       class="m-3 px-5 rounded-md bg-PrimaryGreen"
     >
-      - minifcare alla
+      - Minimera alla
     </button>
     <button
       @click="toggleAccordion('+')"
       class="m-3 px-5 rounded-md bg-PrimaryGreen"
     >
-      + expande alla
+      + Expandera alla
     </button>
   </div>
 </template>
