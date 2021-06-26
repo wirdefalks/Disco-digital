@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="flex flex-col justify-start bg-ContainerGray">
-      <div
+      <div v-if="!isLast"
         :class="[
-          index == 0 ? ' border-t border-black' : 'border-b border-black',
+          !isLast ? ' border-t border-black' : 'border-b border-black',
           '',
         ]"
       ></div>
