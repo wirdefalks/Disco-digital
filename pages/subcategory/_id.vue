@@ -16,7 +16,6 @@
         :key="post._id"
 
       />
-
     </div>
       <hr>
   </div>
@@ -24,9 +23,6 @@
 
 <script>
 import { groq } from "@nuxtjs/sanity";
-import CustomComponent from "./../../components/CustomComponent";
-import ItalicComponent from "./../../components/ItalicComponent";
-import GreenComponent from "./../../components/GreenComponent";
 
 export default {
   async asyncData({ $sanity, route }) {

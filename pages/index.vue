@@ -3,7 +3,7 @@
     <div class="grid mb-4 shadow">
       <div class="flex flex-col justify-start bg-ContainerGray">
         <div class="p-10 text-center">
-          <h1 class="text-5xl text-left font-extrabold">Valkommen!</h1>
+          <h1 class="text-5xl text-left font-extrabold">Välkommen!</h1>
 
           <SanityContent class="text-left" :blocks="home.about" />
           <ToggleAccordion />
@@ -54,7 +54,7 @@ const query = groq`{ 'home': *[_type == 'home'][0]{...},'categories': *[_type=="
   subcategory[]->{
    ...
   }
-}, 'lastPost': *[_type == "post"] | order(_createdAt asc)[0]{
+}, 'lastPost': *[_type == "post"] | order(_createdAt desc)[0]{
   ...,
   "tags": tags[].label,
   author->{name}

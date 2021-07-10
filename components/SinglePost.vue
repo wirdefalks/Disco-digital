@@ -29,6 +29,7 @@
           'bg-gray-100 p-10 space-y-4',
         ]"
       >
+      <small class="text-PrimaryGreen">{{ subCategoryName }}</small>
         <h1 class="text-4xl text-left font-extrabold">
           {{ post.title }}
         </h1>
@@ -70,7 +71,7 @@ import minMax from "../mixins/minMax";
 export default {
   layout: "subcategory",
   mixins: [minMax],
-  props: ["post", "index", "subCategoryName", "isLast"],
+  props: ["post", "index", "subCategoryName", "isLast" ],
   data() {
     return {
       serializers: {

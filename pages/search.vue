@@ -39,7 +39,7 @@ export default {
       let f;
       if (this.$store.state.searchOrFilter) {
         f = this.posts.filter((x) =>
-          x.title
+          x.title && x.plain
             ? x.title.toLowerCase().includes(this.$store.state.search) || x.plain.toLowerCase().includes(this.$store.state.search)
             : ""
         );
