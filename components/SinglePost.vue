@@ -9,15 +9,7 @@
       ></div>
       <p
         v-if="!isLast"
-        class="
-          text-PrimaryGreen
-          p-6
-          cursor-pointer
-          ml-0
-          font-bold
-          border-black
-          showI
-        "
+        class="p-6 ml-0 font-bold border-black cursor-pointer text-PrimaryGreen showI"
         @click="characterItemClick(index)"
       >
         {{ post.title }}
@@ -29,11 +21,10 @@
           'bg-gray-100 p-10 space-y-4',
         ]"
       >
-      <small class="text-PrimaryGreen">{{ subCategoryName }}</small>
-        <h1 class="text-4xl text-left font-extrabold">
+        <h1 class="text-4xl font-extrabold text-left">
           {{ post.title }}
         </h1>
-        <div class="flex flex-row justify-between items-center">
+        <div class="flex flex-row items-center justify-between">
           <p class="text-gray-500">
             {{ returnDate(post._createdAt) }} av {{ post.author.name }}
           </p>

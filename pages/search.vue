@@ -1,14 +1,16 @@
 <template>
-  <div class="flex flex-col justify-start bg-ContainerGray  mb-12">
-    <h1 class="text-3xl text-center font-bold m-4">Sök</h1>
+  <div class="flex flex-col justify-start mb-12 bg-ContainerGray">
+    <h1 class="m-4 text-3xl font-bold text-left">
+      Sökresultat: {{ $store.state.search }}
+    </h1>
     <div>
       <div v-if="filteredContent">
-    <ToggleAccordion  />
+        <ToggleAccordion />
         <SinglePost
           v-for="(post, index) in filteredContent"
           :post="post"
           :index="index"
-          :key="post._id"
+          :key="index"
         />
       </div>
     </div>
@@ -36,19 +38,32 @@ export default {
   },
   computed: {
     filteredContent() {
-      let f;
+      let f, c;
       if (this.$store.state.searchOrFilter) {
         f = this.posts.filter((x) =>
           x.title && x.plain
             ? x.title.toLowerCase().includes(this.$store.state.search) || x.plain.toLowerCase().includes(this.$store.state.search)
             : ""
         );
+        let c = this.$store.state.posts.map(
+          (x) =>
+            x.subcategory[0] != undefined &&
+            x.subcategory[0]["id"]
+              .toLowerCase()
+              .includes(this.$store.state.search) &&
+            x
+        );
+        let nc = c.forEach((x) => (x != false ? f.push(x) : ""));
       } else {
         f = this.posts.filter((x) =>
           x.tags ? x.tags.sort().join().includes(this.$store.state.filters) : ""
         );
       }
-
+      f.sort(function (a, b) {
+        var textA = a.title.toUpperCase();
+        var textB = b.title.toUpperCase();
+        return textA < textB ? -1 : textA > textB ? 1 : 0;
+      });
       this.found = f.length;
       this.logg();
       return f;
