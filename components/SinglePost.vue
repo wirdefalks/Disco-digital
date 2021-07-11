@@ -9,7 +9,7 @@
       ></div>
       <p
         v-if="!isLast"
-        class="p-6 ml-0 font-bold border-black cursor-pointer  text-PrimaryGreen showI"
+        class="p-6 ml-0 font-bold border-black cursor-pointer text-PrimaryGreen showI"
         @click="characterItemClick(index)"
       >
         {{ post.title }}

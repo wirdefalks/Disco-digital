@@ -21,7 +21,7 @@ import { groq } from "@nuxtjs/sanity";
 import "@riophae/vue-treeselect/dist/vue-treeselect.css";
 
 //this queries all(*) the categories and pushed inside each subcategory that belongs to them
-const query = groq`*[_type=="category"]{
+const query = groq`*[_type=="category"] | order(title asc) {
   title,subcategory[] {_type == 'reference' => ^->, _type != 'reference' => ^,}
 }`;
 export default {
