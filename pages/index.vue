@@ -3,23 +3,23 @@
     <div class="grid mb-4 shadow">
       <div class="flex flex-col justify-start bg-ContainerGray">
         <div class="p-10 text-center">
-          <h1 class="text-5xl text-left font-extrabold">Valkommen!</h1>
+          <h1 class="text-5xl font-extrabold text-left">Valkommen!</h1>
 
           <SanityContent class="text-left" :blocks="home.about" />
           <ToggleAccordion />
           <div
-            class="flex flex-col w-full text-left mt-5 space-y-3 text-PrimaryGreen"
+            class="flex flex-col w-full mt-5 space-y-3 text-left text-PrimaryGreen"
           >
             <div v-for="(category, index) in categories" :key="category._id">
               <p
-                class="text-PrimaryGreen py-3 pt-4 cursor-pointer ml-0 showI font-bold border-t border-black"
+                class="py-3 pt-4 ml-0 font-bold border-t border-black cursor-pointer text-PrimaryGreen showI"
                 @click="characterItemClick(index)"
               >
                 {{ category.title }}
               </p>
               <div
                 :data-character-id="index"
-                class="space-y-1 hidden ml-3 accordion"
+                class="hidden ml-3 space-y-1 accordion"
               >
                 <div
                   v-for="subcategory in category.subcategory"
@@ -54,7 +54,7 @@ const query = groq`{ 'home': *[_type == 'home'][0]{...},'categories': *[_type=="
   subcategory[]->{
    ...
   }
-}, 'lastPost': *[_type == "post"] | order(_createdAt asc)[0]{
+}, 'lastPost': *[_type == "post"] | order(_createdAt desc)[0]{
   ...,
   "tags": tags[].label,
   author->{name}

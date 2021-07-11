@@ -1,6 +1,8 @@
 <template>
   <div class="flex flex-col justify-start mb-12 bg-ContainerGray">
-    <h1 class="m-4 text-3xl font-bold text-left">Sökresultat: {{$store.state.search}}</h1>
+    <h1 class="m-4 text-3xl font-bold text-left">
+      Sökresultat: {{ $store.state.search }}
+    </h1>
     <div>
       <div v-if="filteredContent">
         <ToggleAccordion />
@@ -58,7 +60,11 @@ export default {
           x.tags ? x.tags.sort().join().includes(this.$store.state.filters) : ""
         );
       }
-      
+      f.sort(function (a, b) {
+        var textA = a.title.toUpperCase();
+        var textB = b.title.toUpperCase();
+        return textA < textB ? -1 : textA > textB ? 1 : 0;
+      });
       this.found = f.length;
       this.logg();
       return f;
