@@ -3,7 +3,7 @@
     <div class="grid mb-4 shadow">
       <div class="flex flex-col justify-start bg-ContainerGray">
         <div class="p-10 text-center">
-          <h1 class="text-5xl font-extrabold text-left">Valkommen!</h1>
+          <h1 class="text-5xl text-left font-extrabold">Välkommen!</h1>
 
           <SanityContent class="text-left" :blocks="home.about" />
           <ToggleAccordion />

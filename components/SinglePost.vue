@@ -62,7 +62,7 @@ import minMax from "../mixins/minMax";
 export default {
   layout: "subcategory",
   mixins: [minMax],
-  props: ["post", "index", "subCategoryName", "isLast"],
+  props: ["post", "index", "subCategoryName", "isLast" ],
   data() {
     return {
       serializers: {
