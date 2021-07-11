@@ -18,11 +18,11 @@ export default {
       let accordions = document.querySelectorAll(".accordion");
       action === "+" ?
         [...accordions].forEach((x) => {
-          x.classList.remove("hidden");
+          x.classList.replace("hidden", "block");
           x.previousElementSibling.classList.replace("showI", "hideI");
         }) :
         [...accordions].forEach((x) => {
-          x.classList.add("hidden");
+          x.classList.replace("block", "hidden");
           x.previousElementSibling.classList.replace("hideI", "showI");
         });
     },
