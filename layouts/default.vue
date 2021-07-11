@@ -7,7 +7,7 @@
       <Nuxt
         class="mx-2 lg:mx-auto lg:w-8/12"
       />
-      <div class="mx-auto w-2/12">
+      <div class="w-2/12 mx-auto">
         <SearchComponent class="shadow" />
         <QuickMenu class="shadow" />
         <Filters class="shadow" />
