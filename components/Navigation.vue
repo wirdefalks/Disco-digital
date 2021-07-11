@@ -4,7 +4,15 @@
   >
     <div class="flex items-center flex-shrink-0 mr-6 text-white">
       <NuxtLink
-        class="text-black no-underline logo hover:text-PrimaryGreen hover:no-underline"
+        class="
+          text-PrimaryGreen
+          no-underline
+          transition-all
+          duration-300
+          logo
+          hover:text-green-400
+          hover:no-underline
+        "
         to="/"
       >
         <span class="pl-2 text-2xl font-bold"
@@ -13,49 +21,62 @@
       </NuxtLink>
     </div>
 
-    <div class="block lg:hidden">
-      <button
+    <div
+      :class="[
+        toggle
+          ? 'block lg:hidden m-3 bg-white text-PrimaryGreen rounded-md border-bg-PrimaryGreen border'
+          : 'block lg:hidden m-3  bg-PrimaryGreen rounded-md',
+      ]"
+    >
+      <div
         id="nav-toggle"
         @click="toggleNav"
-        class="flex items-center px-3 py-2 text-black border border-gray-600 rounded focus:outline-none hover:text-black hover:border-black"
+        class="
+          flex
+          items-center
+          px-3
+          py-2
+          rounded
+          focus:outline-none
+          hover:text-PrimaryGreen
+        "
       >
         <svg
-          class="w-3 h-3 fill-current"
+          :class="[toggle ? 'text-PrimaryGreen' : 'fill-current', 'w-3 h-3  ']"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
         >
           <title>Menu</title>
           <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
         </svg>
-      </button>
+      </div>
     </div>
 
     <div
       :class="[
-        toggle ? 'h-40' : 'h-0',
+        toggle ? 'h-36' : 'h-0',
         'w-full flex-grow lg:flex lg:items-center lg:w-auto lg:pt-0',
       ]"
       id="nav-content"
     >
       <ul
         :class="[
-          linkse ? ' opacity-100 ' : ' opacity-0 hidden  ',
+          linkse ? 'opacity-100' : 'opacity-0 sm:hidden z-0',
           'pt-4 lg:pt-0 lg:opacity-100 list-reset lg:flex justify-end flex-1 items-center uppercase text-xs text-PrimaryGreen',
         ]"
       >
-        <li class="mr-3">
-          <NuxtLink
-            class="inline-block px-4 py-2 no-underline transition-all duration-200 hover:text-green-900"
-            to="/search"
-            >search</NuxtLink
-          >
-          <span class="hidden lg:inline-block">|</span>
-        </li>
-
         <div v-for="lin in xtraLinks" :key="lin.name">
           <li class="mr-3">
             <NuxtLink
-              class="inline-block px-4 py-2 no-underline transition-all duration-200 hover:text-green-900"
+              class="
+                inline-block
+                px-4
+                py-2
+                no-underline
+                transition-all
+                duration-200
+                hover:text-green-900
+              "
               :to="'/pages/' + lin.name"
               >{{ lin.name }}</NuxtLink
             >
@@ -64,8 +85,16 @@
         </div>
         <li class="mr-3">
           <NuxtLink
-            to="/about"
-            class="inline-block px-4 py-2 no-underline transition-all duration-200 hover:text-green-900"
+            to="/omoss"
+            class="
+              inline-block
+              px-4
+              py-2
+              no-underline
+              transition-all
+              duration-200
+              hover:text-green-900
+            "
             >Om oss</NuxtLink
           >
         </li>
@@ -83,6 +112,13 @@ export default {
     xtraLinks: "",
     linkse: false,
   }),
+  mounted(){
+    if(process.client) {
+    let unorderList = document.getElementsByTagName('ul')[0]
+    window.innerWidth < 600 && unorderList.addEventListener('click',()=>this.toggleNav())
+  }
+
+    },
   methods: {
     toggleNav() {
       this.toggle = !this.toggle;
@@ -97,10 +133,7 @@ export default {
     const xtraLinks = await this.$sanity.fetch(query);
     this.xtraLinks = xtraLinks;
   },
-  mounted(){
-    let unorderList = document.getElementsByTagName('ul')[0]
-    unorderList.addEventListener('click',()=>this.toggleNav())
-  }
+
 };
 </script>
 

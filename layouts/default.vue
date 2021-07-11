@@ -12,7 +12,7 @@
         <QuickMenu class="shadow" />
         <Filters class="shadow" />
       </div>
-       <button class="w-12 lg:hidden" @click="searchi = !searchi"> <svg
+       <button class="w-12 lg:hidden z-10" @click="searchi = !searchi"> <svg
             xmlns="http://www.w3.org/2000/svg"
             class="w-4 h-4 m-1 fill-current"
             viewBox="0 0 512.005 512.005"
@@ -30,7 +30,7 @@
 <script>
 export default {
 data() {
-  return { searchi: true }
+  return { searchi: false }
 },
 mounted() {
   if(process.client) {
