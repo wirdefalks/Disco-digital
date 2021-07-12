@@ -7,7 +7,7 @@
       <Nuxt
         class="mx-2 lg:mx-auto lg:w-8/12"
       />
-      <div v-if="searchi" class="z-10 mx-2 lg:mx-auto fadeInCG lg:w-2/12">
+      <div v-if="true" class="z-10 mx-2 lg:mx-auto fadeInCG lg:w-2/12">
         <SearchComponent class="shadow" />
         <QuickMenu class="shadow" />
         <Filters class="shadow" />
