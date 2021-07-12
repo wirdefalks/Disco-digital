@@ -104,5 +104,15 @@ h3 {
 h4 {
   font-size: 1em;
 }
+li{
+  list-style: disc;
+}
+div > li {
+      margin: -20px 0px -11px 3px;
+
+}
+ul{
+  margin-left:20px;
+}
 </style>
 
