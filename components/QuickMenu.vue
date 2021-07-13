@@ -45,7 +45,7 @@ export default {
       this.options = data.map((x) => {
         if(x.subcategory){
             subc = x.subcategory.map((x) => {
-            let id = x.id;
+            let id = x.slug.current;
             let label = x.id;
             return {
               id,
