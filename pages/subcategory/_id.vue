@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="flex flex-col justify-start bg-ContainerGray border-b border-black">
+    <div class="flex flex-col justify-start border-b border-black bg-ContainerGray">
       <div class="p-5">
-        <h1 class="text-3xl text-left font-bold">{{ page.id }}</h1>
+        <h1 class="text-3xl font-bold text-left">{{ page.id }}</h1>
         <p class="text-left">
           {{ page.description }}
         </p>
@@ -14,7 +14,7 @@
         :index="index"
         :subCategoryName="page.id"
         :key="post._id"
-
+        :subCatDesc="page.description"
       />
     </div>
       <hr>
@@ -31,7 +31,7 @@ export default {
         ...,
          "posts": posts[]{ _type == 'reference' => @->{...,
          "tags": tags[].label,
-         "subcategory": *[_type=='subcategory' && references(^._id)]{ id },...,author->{name}}}}`
+         "subcategory": *[_type=='subcategory' && references(^._id)]{ id,description },...,author->{name}}}}`
     );
     const page = subcategory[0];
     return { page };

@@ -39,14 +39,20 @@
           :blocks="post.body"
           :serializers="serializers"
         />
+        <div class="flex flex-col items-end">
+          <div class="flex">
+            
+         <small class="mr-1">{{subCategoryName}} -</small> <small>{{subCatDesc}}</small>
+          </div>
         <div class="flex text-PrimaryGreen">
           <small v-for="(tag, i) in post.tags" :key="i">
             <span class="text-black">[</span>
-            {{ tag }}
+           <NuxtLink :to="'/tag/' + tag"> {{ tag }} </NuxtLink>
             <span class="text-black">] </span>
           </small>
         </div>
       </div>
+        </div>
     </div>
   </div>
 </template>
@@ -62,7 +68,7 @@ import minMax from "../mixins/minMax";
 export default {
   layout: "subcategory",
   mixins: [minMax],
-  props: ["post", "index", "subCategoryName", "isLast" ],
+  props: ["post", "index", "subCategoryName", "isLast","subCatDesc" ],
   data() {
     return {
       serializers: {
@@ -104,15 +110,15 @@ h3 {
 h4 {
   font-size: 1em;
 }
-li{
+ul, ol{
+  margin-left: 15px;
+}
+ul li{
   list-style: disc;
 }
-div > li {
-      margin: -20px 0px -11px 3px;
 
-}
-ul{
-  margin-left:20px;
+ol li {
+  list-style: decimal;
 }
 </style>
 
