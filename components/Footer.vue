@@ -5,7 +5,7 @@
           <h3>Disco Digital</h3>
       </div>
       <div class="p-5 text-PrimaryGreen">
-          <h4 class="mr-4">copyright here</h4>
+         <a href="https://collabo.studio"><h4 class="mr-4">Collabo Studio</h4></a> 
       </div>
   </div>
 </template>

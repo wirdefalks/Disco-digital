@@ -77,7 +77,7 @@
                 duration-200
                 hover:text-green-900
               "
-              :to="'/pages/' + lin.name"
+              :to="'/pages/' + lin.slug.current"
               >{{ lin.name }}</NuxtLink
             >
             <span class="hidden lg:inline-block">|</span>
@@ -105,7 +105,7 @@
 
 <script>
 import { groq } from "@nuxtjs/sanity";
-const query = groq`*[_type=="xtraPage"]`;
+const query = groq`*[ _type =="navlinks" ]{blocks[]->{...} }`;
 export default {
   data: () => ({
     toggle: false,
@@ -131,7 +131,8 @@ export default {
   },
   async fetch() {
     const xtraLinks = await this.$sanity.fetch(query);
-    this.xtraLinks = xtraLinks;
+    
+     this.xtraLinks = xtraLinks[0].blocks;
   },
 
 };

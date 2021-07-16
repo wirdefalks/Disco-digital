@@ -1,19 +1,17 @@
 <template>
- <div class="flex flex-col justify-start bg-ContainerGray">
-      <div class="p-5">    <h1 class="text-5xl text-center font-bold">{{ page.header }}</h1>
+  <div class="flex flex-col justify-start bg-ContainerGray">
+ 
+    <div class="p-5">
+      <h1 class="text-5xl text-center font-bold">{{ page.name }}</h1>
 
-    <div
-      v-for="content in page.contentPosts"
-      :key="content.header"
-      :style="{ backgroundColor: content.color }"
-    >
-      <SanityContent
-        class="max-w-2xl space-y-2 text-base text-left"
-        :blocks="content.body"
-        
-      />
+    
+        <SanityContent
+          class="max-w-2xl space-y-2 text-base text-left"
+          :blocks="page.body"
+           :serializers="serializers"
+        />
+      
     </div>
-  </div>
   </div>
 </template>
 
@@ -21,30 +19,35 @@
 import { SanityBlocks } from "sanity-blocks-vue-component";
 
 import { groq } from "@nuxtjs/sanity";
-import CustomComponent from "./../../components/CustomComponent";
+import CustomComponent from "../../components/CustomComponent";
+import ItalicComponent from "../../components/ItalicComponent";
+import GreenComponent from "../../components/GreenComponent";
+import RenderVideo from "../../components/RenderVideo";
+import HtmlComponent from "../../components/HtmlComponent";
 
-const query = groq`*[_type=="xtraPage"]`;
-
-    
 export default {
   components: { SanityBlocks },
 
   data() {
     return {
-      filx: null,
-      contenido: "contenidio",
       serializers: {
         types: {
-         image:CustomComponent
+          image: CustomComponent,
+          video: RenderVideo,
+          html: HtmlComponent,
+        },
+        marks: {
+          underline: ItalicComponent,
+          highlight: GreenComponent,
         },
       },
     };
   },
   async asyncData({ $sanity, route }) {
-    const xtras = await $sanity.fetch(query);
-    let filx = xtras.filter((x) => x.name == route.params.id);
-    const page = filx[0];
-    return { page };
+    return {page : await $sanity.fetch(
+      groq`*[slug.current=="${route.params.id}"][0]`
+    )}
+    
   },
   methods: {
     cosa() {
