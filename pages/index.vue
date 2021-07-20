@@ -8,11 +8,26 @@
           <SanityContent class="text-left" :blocks="home.about" />
           <ToggleAccordion />
           <div
-            class="flex flex-col w-full mt-5 space-y-3 text-left text-PrimaryGreen"
+            class="
+              flex flex-col
+              w-full
+              mt-5
+              space-y-3
+              text-left text-PrimaryGreen
+            "
           >
             <div v-for="(category, index) in categories" :key="category._id">
               <p
-                class="py-3 pt-4 ml-0 font-bold border-t border-black cursor-pointer text-PrimaryGreen showI"
+                class="
+                  py-3
+                  pt-4
+                  ml-0
+                  font-bold
+                  border-t border-black
+                  cursor-pointer
+                  text-PrimaryGreen
+                  showI
+                "
                 @click="characterItemClick(index)"
               >
                 {{ category.title }}
@@ -36,7 +51,16 @@
       </div>
     </div>
     <!-- show last post -->
-    <SinglePost class="mb-12 shadow" :post="lastPost" :index="ind" :isLast="true" />
+    <SinglePost
+      class="mb-12 shadow"
+      :post="lastPost"
+      :index="ind"
+      :isLast="true"
+      :catName="lastPost.category.title"
+      :subCatDesc="lastPost.subcategory[0].description"
+      :catDesc="lastPost.category.description"
+      :subCategoryName="lastPost.subcategory[0].id"
+    />
   </div>
 </template>
 
@@ -57,7 +81,11 @@ const query = groq`{ 'home': *[_type == 'home'][0]{...},'categories': *[_type=="
 }, 'lastPost': *[_type == "post"] | order(_createdAt desc)[0]{
   ...,
   "tags": tags[].label,
-  author->{name}
+  author->{name},
+ "subcategory": *[_type=='subcategory' && references(^._id)]{...,"title":id,description}
+} {
+  ...,
+  'category': *[_type == 'category' && references(^.subcategory[]._id)][0]{title,description}
 },
 }`;
 

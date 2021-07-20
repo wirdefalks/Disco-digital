@@ -11,6 +11,7 @@
           :post="post"
           :index="index"
           :key="index"
+          
         />
       </div>
     </div>
@@ -42,7 +43,8 @@ export default {
       if (this.$store.state.searchOrFilter) {
         f = this.posts.filter((x) =>
           x.title && x.plain
-            ? x.title.toLowerCase().includes(this.$store.state.search) || x.plain.toLowerCase().includes(this.$store.state.search)
+            ? x.title.toLowerCase().includes(this.$store.state.search) ||
+              x.plain.toLowerCase().includes(this.$store.state.search)
             : ""
         );
         let c = this.$store.state.posts.map(
@@ -53,6 +55,16 @@ export default {
               .includes(this.$store.state.search) &&
             x
         );
+        let ca = this.$store.state.posts.map(
+          (x) =>
+            x.category[0] != undefined &&
+            x.category[0]["title"]
+              .toLowerCase()
+              .includes(this.$store.state.search) &&
+            x
+        );
+        // console.log(ca);
+        ca.forEach((x) => (x != false ? f.push(x) : ""));
         let nc = c.forEach((x) => (x != false ? f.push(x) : ""));
       } else {
         f = this.posts.filter((x) =>
@@ -66,7 +78,12 @@ export default {
       });
       this.found = f.length;
       this.logg();
-      return f;
+
+      let uniqueChars = f.filter((c, index) => {
+        return f.indexOf(c) === index;
+      });
+      // console.log(uniqueChars[0].subcategory[0].id);
+      return uniqueChars;
     },
   },
 };

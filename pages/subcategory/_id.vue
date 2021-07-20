@@ -14,7 +14,9 @@
         :index="index"
         :subCategoryName="page.id"
         :key="post._id"
+        :catName="page.category.title"
         :subCatDesc="page.description"
+        :catDesc="page.category.description"
       />
     </div>
       <hr>
@@ -29,11 +31,13 @@ export default {
     const subcategory = await $sanity.fetch(
       groq`*[slug.current=="${route.params.id}"]{
         ...,
+  'category': *[_type == 'category' && references(^._id)][0]{title,description},
          "posts": posts[]{ _type == 'reference' => @->{...,
          "tags": tags[].label,
-         "subcategory": *[_type=='subcategory' && references(^._id)]{ id,description },...,author->{name}}}}`
+         "subcategory": *[_type=='subcategory' && references(^._id)]{ id,description},...,author->{name}}  }}`
     );
     const page = subcategory[0];
+    console.log(page);
     return { page };
   },
 };

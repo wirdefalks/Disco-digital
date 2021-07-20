@@ -40,9 +40,10 @@
           :serializers="serializers"
         />
         <div class="flex flex-col items-end">
-          <div class="flex">
-            
-         <small class="mr-1">{{subCategoryName}} -</small> <small>{{subCatDesc}}</small>
+          <div class="flex flex-col w-80 text-right">
+          
+         <small class="mr-1 font-bold">{{returnCat(catName, post.subcategory)}} </small> <small>{{catDesc}}</small>
+         <small class="mr-1 font-bold">{{returnSub(subCategoryName,post.subcategory)}} </small> <small>{{subCatDesc}}</small>
           </div>
         <div class="flex text-PrimaryGreen">
           <small v-for="(tag, i) in post.tags" :key="i">
@@ -68,7 +69,7 @@ import minMax from "../mixins/minMax";
 export default {
   layout: "subcategory",
   mixins: [minMax],
-  props: ["post", "index", "subCategoryName", "isLast","subCatDesc" ],
+  props: ["post", "index", "subCategoryName", "isLast","subCatDesc","catDesc","catName"],
   data() {
     return {
       serializers: {
@@ -88,6 +89,14 @@ export default {
     printPost(id) {
       this.$router.push(`/printmode/${id}`);
     },
+    returnSub(fromSub, fromStore){
+     
+     return fromSub? fromSub : ((fromStore && fromStore[0] ) ?  fromStore[0].id : '') ? '' :''
+    },
+    returnCat(fromSub, fromStore){
+      return fromSub? fromSub : ((fromStore && fromStore[0]) ? fromStore[0].id : '') ? '' :''
+
+    }
   },
 };
 </script>
