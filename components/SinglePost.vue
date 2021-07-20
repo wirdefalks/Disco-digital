@@ -79,8 +79,8 @@ export default {
           html: HtmlComponent,
         },
         marks: {
-          underline: ItalicComponent,
           highlight: GreenComponent,
+          blockquote: ItalicComponent,
         },
       },
     };
