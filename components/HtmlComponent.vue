@@ -1,6 +1,10 @@
 
 <template>
-<div v-html="code">
+<div>
+
+
+<div v-html="code" >
+</div>
 </div>
 
 </template>

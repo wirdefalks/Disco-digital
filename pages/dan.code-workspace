@@ -7,5 +7,12 @@
 			"path": "../../studio"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"workbench.colorCustomizations": {
+			"statusBar.background": "#123",
+			"statusBar.debuggingBackground": "#123",
+			"statusBar.noFolderBackground": "#123",
+			"statussBar.prominentBackground": "#123"
+		}
+	}
 }

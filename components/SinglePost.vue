@@ -42,8 +42,10 @@
         <div class="flex flex-col items-end">
           <div class="flex flex-col w-80 text-right">
           
-         <small class="mr-1 font-bold">{{returnCat(catName, post.subcategory)}} </small> <small>{{catDesc}}</small>
-         <small class="mr-1 font-bold">{{returnSub(subCategoryName,post.subcategory)}} </small> <small>{{subCatDesc}}</small>
+         <small class="mr-1 font-bold">{{returnSub(catName, post.category,'title')}} </small>
+          <small>{{returnDesc(catDesc,post.category,'description')}}</small>
+         <small class="mr-1 font-bold">{{returnSub(subCategoryName,post.subcategory,'id')}} </small> 
+         <!-- <small>{{returnDesc(subCatDesc,post.subcategory,'description')}}</small> -->
           </div>
         <div class="flex text-PrimaryGreen">
           <small v-for="(tag, i) in post.tags" :key="i">
@@ -89,13 +91,24 @@ export default {
     printPost(id) {
       this.$router.push(`/printmode/${id}`);
     },
-    returnSub(fromSub, fromStore){
-     
-     return fromSub? fromSub : ((fromStore && fromStore[0] ) ?  fromStore[0].id : '') ? '' :''
+    returnSub(fromSub, fromStore,key){
+    if(fromSub){
+      return fromSub
+    } else{
+      if (fromStore[0] != undefined && fromStore[0][key]){
+        return fromStore[0][key]
+      }
+    }
     },
-    returnCat(fromSub, fromStore){
-      return fromSub? fromSub : ((fromStore && fromStore[0]) ? fromStore[0].id : '') ? '' :''
-
+    returnDesc(fromSub, fromStore,key){
+      console.log(fromStore);
+      if(fromSub){
+      return fromSub
+    } else{
+      if (fromStore[0] != undefined && fromStore[0][key]){
+        return fromStore[0][key]
+      }
+    }
     }
   },
 };

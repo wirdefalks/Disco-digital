@@ -63,7 +63,6 @@ export default {
               .includes(this.$store.state.search) &&
             x
         );
-        // console.log(ca);
         ca.forEach((x) => (x != false ? f.push(x) : ""));
         let nc = c.forEach((x) => (x != false ? f.push(x) : ""));
       } else {

@@ -13,7 +13,7 @@
         :post="post"
         :index="index"
         :subCategoryName="page.id"
-        :key="post._id"
+        :key="index"
         :catName="page.category.title"
         :subCatDesc="page.description"
         :catDesc="page.category.description"
