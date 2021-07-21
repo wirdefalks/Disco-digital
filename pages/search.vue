@@ -81,7 +81,6 @@ export default {
       let uniqueChars = f.filter((c, index) => {
         return f.indexOf(c) === index;
       });
-      // console.log(uniqueChars[0].subcategory[0].id);
       return uniqueChars;
     },
   },

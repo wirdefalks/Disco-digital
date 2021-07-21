@@ -37,7 +37,7 @@ export default {
          "subcategory": *[_type=='subcategory' && references(^._id)]{ id,description},...,author->{name}}  }}`
     );
     const page = subcategory[0];
-    console.log(page);
+  
     return { page };
   },
 };

@@ -43,9 +43,9 @@
           <div class="flex flex-col w-80 text-right">
           
          <small class="mr-1 font-bold">{{returnSub(catName, post.category,'title')}} </small>
-          <small>{{returnDesc(catDesc,post.category,'description')}}</small>
+          <small>{{returnSub(catDesc,post.category,'description')}}</small>
          <small class="mr-1 font-bold">{{returnSub(subCategoryName,post.subcategory,'id')}} </small> 
-         <!-- <small>{{returnDesc(subCatDesc,post.subcategory,'description')}}</small> -->
+         <small>{{returnSub(subCatDesc,post.subcategory,'description')}}</small>
           </div>
         <div class="flex text-PrimaryGreen">
           <small v-for="(tag, i) in post.tags" :key="i">
@@ -101,7 +101,7 @@ export default {
     }
     },
     returnDesc(fromSub, fromStore,key){
-      console.log(fromStore);
+    
       if(fromSub){
       return fromSub
     } else{
