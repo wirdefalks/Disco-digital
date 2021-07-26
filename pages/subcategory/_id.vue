@@ -7,7 +7,7 @@
           {{ page.description }}
         </p>
       </div>
-      <ToggleAccordion />
+      <ToggleAccordion class="m-2"/>
       <SinglePost
         v-for="(post, index) in page.posts"
         :post="post"

@@ -1,6 +1,6 @@
 <template>
   <nav
-    :class="[toggle?'z-20':' z-0','absolute top-0  flex flex-wrap items-center justify-between w-full px-2 lg:px-10 py-1 bg-white']"
+    :class="[toggle?'z-20':' z-0','absolute top-0  flex flex-wrap items-center justify-between w-full px-2 lg:px-10 py-2 bg-white']"
   >
     <div class="flex items-center flex-shrink-0 mr-6 text-white">
       <NuxtLink

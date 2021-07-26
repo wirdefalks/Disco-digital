@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col justify-start mb-12 bg-ContainerGray">
-    <h1 class="m-4 text-3xl font-bold text-left">
+    <h1 class="m-3 text-3xl font-bold text-left p-4">
       Sökresultat: {{ $store.state.search }}
     </h1>
     <div>

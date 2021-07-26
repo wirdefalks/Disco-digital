@@ -3,31 +3,16 @@
     <div class="grid mb-4 shadow">
       <div class="flex flex-col justify-start bg-ContainerGray">
         <div class="p-10 text-center">
-          <h1 class="text-5xl text-left font-extrabold">Välkommen!</h1>
+          <h1 class="text-5xl font-extrabold text-left">Välkommen!</h1>
 
           <SanityContent class="text-left" :blocks="home.about" />
           <ToggleAccordion />
           <div
-            class="
-              flex flex-col
-              w-full
-              mt-5
-              space-y-3
-              text-left text-PrimaryGreen
-            "
+            class="flex flex-col w-full mt-5 space-y-3 text-left text-PrimaryGreen"
           >
             <div v-for="(category, index) in categories" :key="category._id">
               <p
-                class="
-                  py-3
-                  pt-4
-                  ml-0
-                  font-bold
-                  border-t border-black
-                  cursor-pointer
-                  text-PrimaryGreen
-                  showI
-                "
+                class="py-3 pt-4 ml-0 font-bold border-t border-black cursor-pointer text-PrimaryGreen showI"
                 @click="characterItemClick(index)"
               >
                 {{ category.title }}
