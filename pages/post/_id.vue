@@ -16,6 +16,7 @@
           <h1 class="text-4xl font-extrabold text-left text-PrimaryGreen">
           {{ post.title }}
         </h1>
+        <button @click="copyLink">📎</button>
           <p class="text-gray-500">
             {{ returnDate(post._createdAt) }} av {{ post.author.name }}
           </p>
@@ -84,6 +85,10 @@ export default {
    methods: {
     printPost(id) {
       this.$router.push(`/printmode/${id}`);
+    },
+    copyLink({params}){
+      let link = 'https://discodigital.netlify.app/post/'+ this.post.slug.current
+      console.log("🚀 ~ file: _id.vue ~ line 91 ~ copyLink ~ link", link)
     },
     returnSub(fromSub, fromStore, key) {
       
