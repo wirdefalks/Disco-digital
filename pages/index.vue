@@ -12,7 +12,7 @@
           >
             <div v-for="(category, index) in categories" :key="category._id">
               <p
-                class="py-3 pt-4 ml-0 font-bold border-t border-black cursor-pointer text-PrimaryGreen showI"
+                class="py-3 pt-4 ml-0 text-lg tracking-wide border-t border-gray-600 cursor-pointer text-PrimaryGreen showI"
                 @click="characterItemClick(index)"
               >
                 {{ category.title }}

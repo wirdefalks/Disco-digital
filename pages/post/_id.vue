@@ -1,39 +1,25 @@
 <template>
-  <div>
-    <div class="flex flex-col justify-start bg-ContainerGray">
-      <div
-        v-if="!isLast"
-        :class="[
-          !isLast ? ' border-t border-gray-600' : 'border-b border-gray-600',
-          '',
-        ]"
-      ></div>
-      <p
-        v-if="!isLast"
-        class="p-6 ml-0 text-lg tracking-wide border-t cursor-pointer text-PrimaryGreen showI"
-        @click="characterItemClick(index)"
-      >
+  <div class="flex flex-col justify-start p-12 bg-white">
+    <!-- <div class="p-5">
+      <h1 class="text-4xl font-extrabold text-left accordion">
         {{ post.title }}
-      </p>
-      <div
-        :data-character-id="index"
-        :class="[
-          isLast ? '' : 'hidden accordion',
-          'bg-gray-100 p-10 space-y-4',
-        ]"
-      >
-        <!-- <h1 class="text-4xl font-extrabold text-left">
+      </h1>
+      <SanityContent :blocks="post.body" :serializers="serializers" />
+      <div class="flex text-PrimaryGreen">
+        <h4 v-for="(tag, i) in post.tags" :key="i">
+          {{ tag.label }}
+          <span class="text-black"></span>
+        </h4>
+      </div>
+    </div> -->
+      <div class="flex flex-row items-center justify-between py-6 space-y-4 ">
+          <h1 class="text-4xl font-extrabold text-left text-PrimaryGreen">
           {{ post.title }}
-        </h1> -->
-        <div class="flex flex-row items-center justify-between">
+        </h1>
           <p class="text-gray-500">
             {{ returnDate(post._createdAt) }} av {{ post.author.name }}
           </p>
-          <div class="text-right">
-            <button @click="printPost(post._id)" class="bg-PrimaryGreen">
-              Skriv ut
-            </button>
-          </div>
+           
         </div>
         <SanityContent
           class="space-y-3 text-base text-left"
@@ -43,16 +29,16 @@
         <div class="flex flex-col items-end">
           <div class="flex flex-col text-right w-80">
             <small class="mr-1 font-bold"
-              >{{ returnSub(catName, post.category, "title") }}
+              >{{ returnSub("catName", post.category, "title") }}
             </small>
             <small>{{
-              returnSub(catDesc, post.category, "description")
+              returnSub("catDesc", post.category, "description")
             }}</small>
             <small class="mr-1 font-bold"
-              >{{ returnSub(subCategoryName, post.subcategory, "id") }}
+              >{{ returnSub("subCategoryName", post.subcategory, "id") }}
             </small>
             <small>{{
-              returnSub(subCatDesc, post.subcategory, "description")
+              returnSub("subCatDesc", post.subcategory, "description")
             }}</small>
           </div>
           <div class="flex text-PrimaryGreen">
@@ -63,31 +49,23 @@
             </small>
           </div>
         </div>
-      </div>
-    </div>
   </div>
 </template>
 
 <script>
-import CustomComponent from "./../components/CustomComponent";
-import ItalicComponent from "../components/ItalicComponent";
-import GreenComponent from "../components/GreenComponent";
-import RenderVideo from "../components/RenderVideo";
-import HtmlComponent from "../components/HtmlComponent";
-import minMax from "../mixins/minMax";
-
+import CustomComponent from "../../components/CustomComponent.vue";
+import ItalicComponent from "../../components/ItalicComponent.vue";
+import GreenComponent from "../../components/GreenComponent";
+import RenderVideo from "../../components/RenderVideo";
+import HtmlComponent from "../../components/HtmlComponent";
+import minMax from "../../mixins/minMax";
 export default {
-  layout: "subcategory",
-  mixins: [minMax],
-  props: [
-    "post",
-    "index",
-    "subCategoryName",
-    "isLast",
-    "subCatDesc",
-    "catDesc",
-    "catName",
-  ],
+ 
+   mixins: [minMax],
+  async asyncData({ store, params }) {
+    let post = store.state.posts.find((x) => x.slug.current== params.id);
+    return { post };
+  },
   data() {
     return {
       serializers: {
@@ -103,18 +81,16 @@ export default {
       },
     };
   },
-  methods: {
+   methods: {
     printPost(id) {
       this.$router.push(`/printmode/${id}`);
     },
     returnSub(fromSub, fromStore, key) {
-      if (fromSub) {
-        return fromSub;
-      } else {
+      
         if (fromStore[0] != undefined && fromStore[0][key]) {
           return fromStore[0][key];
         }
-      }
+       
     },
     returnDesc(fromSub, fromStore, key) {
       if (fromSub) {
@@ -159,4 +135,3 @@ ol li {
   list-style: decimal;
 }
 </style>
-

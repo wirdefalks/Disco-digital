@@ -4,15 +4,7 @@
   >
     <div class="flex items-center flex-shrink-0 mr-6 text-white">
       <NuxtLink
-        class="
-          text-PrimaryGreen
-          no-underline
-          transition-all
-          duration-300
-          logo
-          hover:text-green-400
-          hover:no-underline
-        "
+        class="no-underline transition-all duration-300  text-PrimaryGreen logo hover:text-green-400 hover:no-underline"
         to="/"
       >
         <span class="pl-2 text-2xl font-bold"
@@ -31,15 +23,7 @@
       <div
         id="nav-toggle"
         @click="toggleNav"
-        class="
-          flex
-          items-center
-          px-3
-          py-2
-          rounded
-          focus:outline-none
-          hover:text-PrimaryGreen
-        "
+        class="flex items-center px-3 py-2 rounded  focus:outline-none hover:text-PrimaryGreen"
       >
         <svg
           :class="[toggle ? 'text-PrimaryGreen' : 'fill-current', 'w-3 h-3  ']"
@@ -68,15 +52,7 @@
         <div v-for="lin in xtraLinks" :key="lin.name">
           <li class="mr-3">
             <NuxtLink
-              class="
-                inline-block
-                px-4
-                py-2
-                no-underline
-                transition-all
-                duration-200
-                hover:text-green-900
-              "
+              class="inline-block px-4 py-2 no-underline transition-all duration-200  hover:text-green-900"
               :to="'/pages/' + lin.slug.current"
               >{{ lin.name }}</NuxtLink
             >
@@ -86,15 +62,7 @@
         <li class="mr-3">
           <NuxtLink
             to="/omoss"
-            class="
-              inline-block
-              px-4
-              py-2
-              no-underline
-              transition-all
-              duration-200
-              hover:text-green-900
-            "
+            class="inline-block px-4 py-2 no-underline transition-all duration-200  hover:text-green-900"
             >Om oss</NuxtLink
           >
         </li>

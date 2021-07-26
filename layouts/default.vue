@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-x-hidden">
+  <div class="overflow-x-hidden bg-BackgroundGray">
     <Navigation />
     <div
       class="flex flex-col-reverse pt-16 lg:pt-20 md:flex-col-reverse lg:flex-row bg-BackgroundGray min-h-100vh"
@@ -102,5 +102,10 @@ if (process.client) {
 
 .min-h-100vh{
   min-height: 91vh;
+}
+@media only screen and (min-width : 1300px) {
+  .min-h-100vh{
+  min-height: 93vh;
+}
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="flex flex-col justify-start border-b border-black bg-ContainerGray">
-      <div class="p-5">
+    <div class="flex flex-col justify-start border-b border-gray-600 bg-ContainerGray">
+      <div class="pl-9 pt-9">
         <h1 class="text-3xl font-bold text-left">{{ page.id }}</h1>
         <p class="text-left">
           {{ page.description }}

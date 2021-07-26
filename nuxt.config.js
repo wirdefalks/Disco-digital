@@ -32,6 +32,7 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
 		// https://go.nuxtjs.dev/tailwindcss
+    '@nuxtjs/google-fonts',
     '@aceforth/nuxt-optimized-images',
 
 		'@nuxtjs/tailwindcss',
@@ -49,7 +50,15 @@ export default {
   transpile: ['gsap',/@fullcalendar.*/],
   
 },
-
+googleFonts: {
+  families: {
+   
+    'Space+Grotesk': [400, 700],
+  },
+  preconnect: true,
+  preload: true,
+  prefetch: true
+},
 sanity: {
   projectId: 'qp66vak1',
   dataset:'production',

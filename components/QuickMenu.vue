@@ -1,8 +1,8 @@
 <template>
-  <div class="flex flex-col bg-white p-4 my-3">
+  <div class="flex flex-col p-4 my-3 bg-white">
     <div>
-      <h4 class="py-2">Snabbmeny</h4>
-      <div class="bg-ContainerGray flex items-center">
+      <label>Snabbmeny
+      <div class="flex items-center my-3 bg-ContainerGray">
         <Treeselect
           v-model="valuex"
           :multiple="false"
@@ -11,6 +11,7 @@
           @select="select"
         />
       </div>
+      </label>
     </div>
   </div>
 </template>

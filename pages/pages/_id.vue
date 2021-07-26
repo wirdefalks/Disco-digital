@@ -1,8 +1,8 @@
 <template>
-  <div class="flex flex-col justify-start bg-ContainerGray">
+  <div class="flex flex-col justify-start mb-3 bg-ContainerGray">
  
     <div class="p-5">
-      <h1 class="text-5xl text-center font-bold">{{ page.name }}</h1>
+      <h1 class="text-5xl font-bold text-center">{{ page.name }}</h1>
 
     
         <SanityContent
