@@ -25,6 +25,9 @@
         <!-- <h1 class="text-4xl font-extrabold text-left">
           {{ post.title }}
         </h1> -->
+             <NuxtLink :to="'/singlepost/'+post.slug.current" class="opacity-0 ">.</NuxtLink>
+        <button @click="copyLink(post.slug.current)">📎</button>
+
         <div class="flex flex-row items-center justify-between">
           <p class="text-gray-500">
             {{ returnDate(post._createdAt) }} av {{ post.author.name }}
@@ -116,6 +119,11 @@ export default {
         }
       }
     },
+  copyLink(slug) {
+    let link =
+      "https://discodigital.netlify.app/singlepost/" + slug;
+    navigator.clipboard.writeText(link)
+  },
     returnDesc(fromSub, fromStore, key) {
       if (fromSub) {
         return fromSub;
