@@ -62,6 +62,7 @@ googleFonts: {
 sanity: {
   projectId: 'qp66vak1',
   dataset:'production',
+  apiVersion: 'v2021-03-25',
   minimal: true,
   useCdn: false,
   },
