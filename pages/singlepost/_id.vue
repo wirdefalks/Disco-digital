@@ -17,7 +17,9 @@
       <h1 class="text-4xl font-extrabold text-left text-PrimaryGreen">
         {{ post.title }}
       </h1>
-      <button @click="copyLink">📎</button>
+            <NuxtLink :to="'/singlepost/'+post.slug.current" class="opacity-0 ">.</NuxtLink>
+        <div class="cursor-pointer" @click="copyLink(post.slug.current)">📎</div> <h5 v-if="true">☑️</h5>
+
       <p class="text-gray-500">
         {{ returnDate(post._createdAt) }} av {{ post.author.name }}
       </p>
@@ -75,6 +77,7 @@ let post = rpost[0]
   },
   data() {
     return {
+      copied : false,
       serializers: {
         types: {
           image: CustomComponent,
@@ -92,11 +95,12 @@ let post = rpost[0]
     printPost(id) {
       this.$router.push(`/printmode/${id}`);
     },
-    copyLink({ params }) {
-      let link =
-        "https://discodigital.netlify.app/post/" + this.post.slug.current;
-      console.log("🚀 ~ file: _id.vue ~ line 91 ~ copyLink ~ link", link);
-    },
+  copyLink(slug) {
+    let link =
+      "https://discodigital.netlify.app/singlepost/" + slug;
+    navigator.clipboard.writeText(link)
+    this.copied = true
+  },
     returnSub(fromSub, fromStore, key) {
 
         if (fromStore[0] != undefined && fromStore[0][key]) {

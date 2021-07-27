@@ -26,7 +26,8 @@
           {{ post.title }}
         </h1> -->
              <NuxtLink :to="'/singlepost/'+post.slug.current" class="opacity-0 ">.</NuxtLink>
-        <button @click="copyLink(post.slug.current)">📎</button>
+        <div class="cursor-pointer" @click="copyLink(post.slug.current,this)">📎</div> 
+        <!-- <h5 v-if="true">☑️</h5> -->
 
         <div class="flex flex-row items-center justify-between">
           <p class="text-gray-500">
@@ -82,6 +83,11 @@ import minMax from "../mixins/minMax";
 export default {
   layout: "subcategory",
   mixins: [minMax],
+  data () {
+    return {
+      copied: false
+    }
+  },
   props: [
     "post",
     "index",
@@ -119,10 +125,12 @@ export default {
         }
       }
     },
-  copyLink(slug) {
+  copyLink(slug,thiss) {
     let link =
       "https://discodigital.netlify.app/singlepost/" + slug;
     navigator.clipboard.writeText(link)
+    this.copied = true
+    console.log(thiss);
   },
     returnDesc(fromSub, fromStore, key) {
       if (fromSub) {
