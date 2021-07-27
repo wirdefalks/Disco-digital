@@ -10,7 +10,7 @@
           v-for="(post, index) in filteredContent"
           :post="post"
           :index="index"
-          :key="index"
+          :key="index + post.title + 'vv'"
         />
       </div>
     </div>

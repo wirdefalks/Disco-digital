@@ -43,7 +43,7 @@ export default {
     optimizeImages: true
   },
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/axios'],
+  modules: ['@nuxtjs/axios','@nuxtjs/toast'],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
@@ -58,6 +58,19 @@ googleFonts: {
   preconnect: true,
   preload: true,
   prefetch: true
+},
+toast: {
+  position: 'bottom-right',
+  duration:3000,
+  register: [ // Register custom toasts
+    {
+      name: 'copied',
+      message: 'Link copied!',
+      options: {
+        type: 'success'
+      }
+    }
+  ]
 },
 sanity: {
   projectId: 'qp66vak1',

@@ -8,7 +8,7 @@
           <SanityContent class="text-left" :blocks="home.about" />
           <ToggleAccordion />
           <div
-            class="flex flex-col w-full mt-5 space-y-3 text-left text-PrimaryGreen"
+            class="flex flex-col w-full mt-5 space-y-2 text-left text-PrimaryGreen"
           >
             <div v-for="(category, index) in categories" :key="category._id">
               <p
@@ -19,7 +19,7 @@
               </p>
               <div
                 :data-character-id="index"
-                class="hidden ml-3 space-y-1 accordion"
+                class="ml-3 space-y-1  accordiong"
               >
                 <div
                   v-for="subcategory in category.subcategory"

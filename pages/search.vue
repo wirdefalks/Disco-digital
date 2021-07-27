@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col justify-start mb-12 bg-ContainerGray">
-    <h1 class="m-3 text-3xl font-bold text-left p-4">
+    <h1 class="p-4 m-3 text-3xl font-bold text-left">
       Sökresultat: {{ $store.state.search }}
     </h1>
     <div>
@@ -10,7 +10,7 @@
           v-for="(post, index) in filteredContent"
           :post="post"
           :index="index"
-          :key="index"
+          :key="'ba'+ post.title"
           
         />
       </div>

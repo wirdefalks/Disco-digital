@@ -1,12 +1,12 @@
 <template>
   <div class="flex flex-col justify-start bg-ContainerGray">
     <div class="p-5">
-      <h1 class="text-4xl text-left font-extrabold accordion">
+      <h1 class="text-4xl font-extrabold text-left accordion">
         {{ post.title }}
       </h1>
       <SanityContent :blocks="post.body" :serializers="serializers" />
       <div class="flex text-PrimaryGreen">
-        <h4 v-for="(tag, i) in post.tags" :key="i">
+        <h4 v-for="(tag) in post.tags" :key="'Ac'+ tag">
           {{ tag.label }}
           <span class="text-black"></span>
         </h4>

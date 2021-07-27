@@ -1,8 +1,8 @@
 <template>
   <div class="flex justify-between w-full h-16 bg-white shadow">
     <a class="logo" href="/">
-      <div class="flex p-3 logo">
-        <img src="../static/logo.png" alt="" class="w-8 h-8 mx-3" />
+      <div class="flex h-full p-3 logo">
+        <img src="../static/logo.png" alt="" class="w-8 h-8 mx-3 my-auto" />
         <h3 class=" place-self-center text-PrimaryGreen">Disco Digital</h3>
       </div></a
     >

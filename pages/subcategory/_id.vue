@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex flex-col justify-start border-b border-gray-600 bg-ContainerGray">
+    <div class="flex flex-col justify-start mb-4 border-b border-gray-600 bg-ContainerGray">
       <div class="pl-9 pt-9">
         <h1 class="text-3xl font-bold text-left">{{ page.id }}</h1>
         <p class="text-left">
@@ -13,7 +13,7 @@
         :post="post"
         :index="index"
         :subCategoryName="page.id"
-        :key="index"
+        :key="'A'+ index"
         :catName="page.category.title"
         :subCatDesc="page.description"
         :catDesc="page.category.description"
