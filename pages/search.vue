@@ -11,7 +11,7 @@
           :post="post"
           :index="index"
           :key="'ba'+ post.title"
-          
+          :catSlugy='post.category'
         />
       </div>
     </div>
@@ -81,6 +81,7 @@ export default {
       let uniqueChars = f.filter((c, index) => {
         return f.indexOf(c) === index;
       });
+      // console.log(uniqueChars)
       return uniqueChars;
     },
   },

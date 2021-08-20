@@ -19,7 +19,7 @@
               </p>
               <div
                 :data-character-id="index"
-                class="ml-3 space-y-1  accordiong"
+                class="ml-3 space-y-1 accordiong"
               >
                 <div
                   v-for="subcategory in category.subcategory"
@@ -45,6 +45,7 @@
       :subCatDesc="lastPost.subcategory[0].description"
       :catDesc="lastPost.category.description"
       :subCategoryName="lastPost.subcategory[0].id"
+      :catSlug="lastPost.category.slug.current"
     />
   </div>
 </template>
@@ -70,7 +71,7 @@ const query = groq`{ 'home': *[_type == 'home'][0]{...},'categories': *[_type=="
  "subcategory": *[_type=='subcategory' && references(^._id)]{...,"title":id,description}
 } {
   ...,
-  'category': *[_type == 'category' && references(^.subcategory[]._id)][0]{title,description}
+  'category': *[_type == 'category' && references(^.subcategory[]._id)][0]{title,description,...}
 },
 }`;
 

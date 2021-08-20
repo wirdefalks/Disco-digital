@@ -13,6 +13,8 @@
         :post="post"
         :index="index"
         :subCategoryName="page.id"
+        :subCatSlug="page.slug.current"
+        :catSlug="page.category.slug.current"
         :key="'A'+ index"
         :catName="page.category.title"
         :subCatDesc="page.description"
@@ -31,7 +33,7 @@ export default {
     const subcategory = await $sanity.fetch(
       groq`*[slug.current=="${route.params.id}"]{
         ...,
-  'category': *[_type == 'category' && references(^._id)][0]{title,description},
+  'category': *[_type == 'category' && references(^._id)][0]{title,description,...},
          "posts": posts[]{ _type == 'reference' => @->{...,
          "tags": tags[].label,
          "subcategory": *[_type=='subcategory' && references(^._id)]{ id,description},...,author->{name}}  }}`
