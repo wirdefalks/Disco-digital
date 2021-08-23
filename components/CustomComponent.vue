@@ -1,8 +1,9 @@
 <template >
-  <div>
+  <div class="my-2">
  <SanityImage
     :asset-id="asset._ref"
     auto="format"
+    
   />  </div>
 </template>
 

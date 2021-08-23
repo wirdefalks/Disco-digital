@@ -29,7 +29,7 @@
 
           <!-- <h5 v-if="true">☑️</h5> -->
 
-          <div class="flex flex-row items-center justify-between">
+          <div class="flex flex-row items-center justify-between mb-3">
             <p class="text-gray-500">
               {{ returnDate(post._createdAt) }} av {{ post.author.name }}
             </p>
@@ -43,9 +43,10 @@
             class="space-y-3 text-base text-left"
             :blocks="post.body"
             :serializers="serializers"
+            
           />
           
-          <div class="flex flex-col items-end">
+          <div class="flex flex-col items-end mt-4">
             <div class="flex flex-col text-right w-80">
            
               <NuxtLink :to="catSlug ?'/category/' + catSlug : (catSlugy[0] ?'/category/' + catSlugy[0].slug.current : 'a')"> 
@@ -55,7 +56,7 @@
               <small>{{
                 returnSub(catDesc, post.category, "description")
               }}</small>
-             <NuxtLink :to="subCatSlug ? subCatSlug : (post.subcategory[0] ?'subcategory/' + post.subcategory[0].slug.current : '/sc')">  <small class="mr-1 font-bold"
+             <NuxtLink :to="subCatSlug ? subCatSlug : (post.subcategory[0] ?'/subcategory/' + post.subcategory[0].slug.current : '/sc')">  <small class="mr-1 font-bold"
                 >{{ returnSub(subCategoryName, post.subcategory, "id") }}
               </small></NuxtLink>
               <small>{{

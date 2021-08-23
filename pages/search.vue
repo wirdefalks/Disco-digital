@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col justify-start mb-12 bg-ContainerGray">
     <h1 class="p-4 m-3 text-3xl font-bold text-left">
-      Sökresultat: {{ $store.state.search }}
+      Sökresultat: {{ $store.state.search || $store.state.filters  }}  
     </h1>
     <div>
       <div v-if="filteredContent">
