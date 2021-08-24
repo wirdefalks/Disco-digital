@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col bg-white p-4 mt-4">
+  <div class="flex flex-col p-4 mt-4 bg-white">
     <Treeselect
       v-model="value"
       :multiple="true"
@@ -10,7 +10,7 @@
     />
     <button
       @click="searchFilter"
-      class="my-3 px-5 ml-auto mr-0 rounded-md bg-PrimaryGreen"
+      class="px-5 my-3 ml-auto mr-0 rounded-md bg-PrimaryGreen"
     >
       Spara
     </button>

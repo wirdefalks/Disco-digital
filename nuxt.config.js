@@ -46,10 +46,10 @@ export default {
   modules: ['@nuxtjs/axios','@nuxtjs/toast'],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-  transpile: ['gsap',/@fullcalendar.*/],
+//   build: {
+//   transpile: ['gsap',/@fullcalendar.*/],
   
-},
+// },
 googleFonts: {
   families: {
    

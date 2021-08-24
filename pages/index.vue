@@ -3,7 +3,10 @@
     <div class="grid mb-4 shadow">
       <div class="flex flex-col justify-start bg-ContainerGray">
         <div class="p-10 text-center">
-          <h1 class="text-5xl font-extrabold text-left">Välkommen!</h1>
+          <div>
+            <!-- <span class="pageTitle"></span> -->
+            <h1 class="text-5xl font-extrabold text-left headerPage satDown">{{ home.text }}</h1>
+          </div>
 
           <SanityContent class="text-left" :blocks="home.about" />
           <ToggleAccordion />
@@ -17,10 +20,7 @@
               >
                 {{ category.title }}
               </p>
-              <div
-                :data-character-id="index"
-                class="ml-3 space-y-1 accordiong"
-              >
+              <div :data-character-id="index" class="ml-3 space-y-1 accordiong">
                 <div
                   v-for="subcategory in category.subcategory"
                   :key="subcategory._id"
@@ -37,7 +37,7 @@
     </div>
     <!-- show last post -->
     <SinglePost
-      class="mb-12 shadow"
+      class="mb-12 shadow fadeIn"
       :post="lastPost"
       :index="ind"
       :isLast="true"
@@ -85,6 +85,9 @@ export default {
     };
   },
   mixins: [minMax],
+  mounted(){
+    // document.getElementsByClassName("pageTitle")[0].style.width = "50px"
+  }
 };
 </script>
 <style>
@@ -93,5 +96,8 @@ export default {
 }
 .hideI::before {
   content: "-";
+}
+.headerPage::first-letter {
+ color:#51ab33 !important;
 }
 </style>

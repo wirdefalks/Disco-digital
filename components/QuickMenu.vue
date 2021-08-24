@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col p-4 my-3 bg-white">
     <div>
-      <label>Snabbmeny
+      <label class=" text-PrimaryGreen">Snabbmeny
       <div class="flex items-center my-3 bg-ContainerGray">
         <Treeselect
           v-model="valuex"
