@@ -8,7 +8,7 @@
             <h1 class="text-5xl font-extrabold text-left headerPage satDown">{{ home.text }}</h1>
           </div>
 
-          <SanityContent class="text-left" :blocks="home.about" />
+          <SanityContent class="text-left text-gray-800" :blocks="home.about" />
           <ToggleAccordion />
           <div
             class="flex flex-col w-full pr-2 mt-5 space-y-2 text-left text-PrimaryGreen"

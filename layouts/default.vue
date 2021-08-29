@@ -1,8 +1,8 @@
 <template>
-  <div class="overflow-x-hidden bg-BackgroundGray">
+  <div class="overflow-x-hidden tot">
     <Navigation />
     <div
-      class="flex flex-col-reverse pt-16 lg:pt-20 md:flex-col-reverse lg:flex-row bg-BackgroundGray min-h-100vh"
+      class="flex flex-col-reverse pt-16 lg:pt-20 md:flex-col-reverse lg:flex-row tot bg-BackgroundGray min-h-100vh"
     >
       <Nuxt
         class="mx-2 lg:mx-auto lg:w-8/12"
@@ -81,6 +81,7 @@ if (process.client) {
 </script>
 
 <style>
+ 
 .fadeInCG{
   animation: fadeInCG 0.5s;
 }
