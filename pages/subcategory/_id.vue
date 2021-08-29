@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="flex flex-col justify-start mb-4 border-b border-gray-600 bg-ContainerGray">
+    <div class="flex flex-col justify-start px-2 mb-4 border-2 border-white bg-ContainerGray">
       <div class="pl-9 pt-9">
         <h1 class="text-3xl font-bold text-left">{{ page.id }}</h1>
-        <p class="text-left">
+        <p class="inline pb-2 text-left text-gray-900 border-b">
           {{ page.description }}
         </p>
       </div>
@@ -21,7 +21,7 @@
         :catDesc="page.category.description"
       />
     </div>
-      <hr>
+      
   </div>
 </template>
 
@@ -46,10 +46,5 @@ export default {
 </script>
 
 <style>
-.showI::before {
-  content: "+";
-}
-.hideI::before {
-  content: "-";
-}
+ 
 </style>

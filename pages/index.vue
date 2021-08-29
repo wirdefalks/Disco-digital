@@ -11,7 +11,7 @@
           <SanityContent class="text-left" :blocks="home.about" />
           <ToggleAccordion />
           <div
-            class="flex flex-col w-full mt-5 space-y-2 text-left text-PrimaryGreen"
+            class="flex flex-col w-full pr-2 mt-5 space-y-2 text-left text-PrimaryGreen"
           >
             <div v-for="(category, index) in categories" :key="category._id">
               <p
@@ -85,19 +85,26 @@ export default {
     };
   },
   mixins: [minMax],
-  mounted(){
-    // document.getElementsByClassName("pageTitle")[0].style.width = "50px"
-  }
+  
 };
 </script>
 <style>
 .showI::before {
   content: "+";
+  font-size: larger;
 }
 .hideI::before {
   content: "-";
+  font-size: larger;
 }
 .headerPage::first-letter {
  color:#51ab33 !important;
+}
+
+.accordiong a:hover::before{
+  content: "⟶";
+}
+.accordiong a:hover{
+  color:#468330;
 }
 </style>

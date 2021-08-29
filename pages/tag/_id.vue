@@ -55,10 +55,5 @@ export default {
 </script>
 
 <style>
-.showI::before {
-  content: "+";
-}
-.hideI::before {
-  content: "-";
-}
+ 
 </style>

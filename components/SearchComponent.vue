@@ -1,9 +1,9 @@
 <template>
-  <div class="flex flex-col bg-white p-4">
+  <div class="flex flex-col p-4 mt-4 bg-white lg:mt-0">
     <div>
-      <div class="bg-ContainerGray flex items-center">
+      <div class="flex items-center bg-ContainerGray">
         <input
-          class="w-full bg-ContainerGray px-6 text-gray-700 leading-tight focus:outline-none"
+          class="w-full px-6 leading-tight text-gray-700 bg-ContainerGray focus:outline-none"
           type="text"
           v-model="searchValue"
           placeholder="Sök"
@@ -11,11 +11,11 @@
         />
         <div
           @click="searchTerm"
-          class="bg-PrimaryGreen hover:bg-green-700 px-1 py-1 m-1 transition-all duration-500 rounded-md text-white"
+          class="px-1 py-1 m-1 text-white transition-all duration-500 rounded-md bg-PrimaryGreen hover:bg-green-700"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-4 w-4 m-2 fill-current"
+            class="w-4 h-4 m-2 fill-current"
             viewBox="0 0 512.005 512.005"
             style="enable-background: new 0 0 512.005 512.005"
             xml:space="preserve"

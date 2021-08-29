@@ -2,13 +2,13 @@
   <div class="text-right">
     <button
       @click="toggleAccordion('-')"
-      class="m-3 px-5 rounded-md bg-PrimaryGreen"
+      class="px-5 m-3 rounded-md bg-PrimaryGreen"
     >
-      - Minimera alla
+      -  Minimera alla
     </button>
     <button
       @click="toggleAccordion('+')"
-      class="m-3 px-5 rounded-md bg-PrimaryGreen"
+      class="px-5 m-3 rounded-md bg-PrimaryGreen"
     >
       + Expandera alla
     </button>

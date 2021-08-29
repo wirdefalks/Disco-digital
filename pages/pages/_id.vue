@@ -1,18 +1,16 @@
 <template>
-  <div class="flex flex-col justify-start mb-3 bg-ContainerGray">
- 
-    <div class="p-5">
-      <h1 class="text-5xl font-bold text-center">{{ page.name }}</h1>
 
-    
-        <SanityContent
-          class="max-w-2xl space-y-2 text-base text-left"
-          :blocks="page.body"
-           :serializers="serializers"
-        />
-      
+
+   <div >
+   <div class="flex flex-col justify-start mb-12 border-2 border-green-300 bg-ContainerGray ">
+      <div class="p-20">
+
+    <h1 class="text-5xl font-bold text-center border-b border-PrimaryGreen">{{ page.name }}</h1>
+    <SanityContent :blocks="page.body" class="py-6" />
     </div>
   </div>
+  </div>
+  
 </template>
 
 <script>

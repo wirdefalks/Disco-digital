@@ -1,28 +1,26 @@
 <template>
   <div class="flex flex-col justify-start p-12 mb-4 bg-white">
-    <!-- <div class="p-5">
-      <h1 class="text-4xl font-extrabold text-left accordion">
-        {{ post.title }}
-      </h1>
-      <SanityContent :blocks="post.body" :serializers="serializers" />
-      <div class="flex text-PrimaryGreen">
-        <h4 v-for="(tag, i) in post.tags" :key="i">
-          {{ tag.label }}
-          <span class="text-black"></span>
-        </h4>
-      </div>
-    </div> -->
-    <!-- {{post}} -->
     <div class="flex flex-row items-center justify-between py-6 space-y-4">
-      <h1 class="text-4xl font-extrabold text-left text-PrimaryGreen">
-        {{ post.title }}
-      </h1>
-            <NuxtLink :to="'/singlepost/'+post.slug.current" class="opacity-0 ">.</NuxtLink>
      
+      <NuxtLink :to="'/singlepost/' + post.slug.current" class="opacity-0"
+        >.</NuxtLink
+      >
+
+      
+    </div>
+    <div class="flex flex-row items-center justify-between mb-3">
       <p class="text-gray-500">
         {{ returnDate(post._createdAt) }} av {{ post.author.name }}
       </p>
+      <div class="text-right">
+        <button @click="printPost(post._id)" class="bg-PrimaryGreen">
+          Skriv ut
+        </button>
+      </div>
     </div>
+     <h1 class="my-6 text-4xl font-extrabold text-left">
+        {{ post.title }}
+      </h1>
     <SanityContent
       class="space-y-3 text-base text-left"
       :blocks="post.body"
@@ -48,9 +46,10 @@
           <span class="text-black">] </span>
         </small>
       </div>
-       <small class="my-4 cursor-pointer" @click="copyLink(post.slug.current)">Copy link 📎</small>
+      <small class="my-4 cursor-pointer" @click="copyLink(post.slug.current)"
+        >Copy link 📎</small
+      >
     </div>
-
   </div>
 </template>
 
@@ -66,19 +65,19 @@ import { groq } from "@nuxtjs/sanity";
 export default {
   mixins: [minMax],
   async asyncData({ $sanity, route }) {
-    const  rpost = await $sanity.fetch(
-        groq`*[slug.current=="${route.params.id}"]{...,"author": author->{name},"tags": tags[].label,
+    const rpost = await $sanity.fetch(
+      groq`*[slug.current=="${route.params.id}"]{...,"author": author->{name},"tags": tags[].label,
         "subcategory": *[_type=='subcategory' && references(^._id)]} {
   ...,
   'category': *[_type == 'category' && references(^.subcategory[]._id)]
-}`)
-let post = rpost[0]
-      return {post};
-    
+}`
+    );
+    let post = rpost[0];
+    return { post };
   },
   data() {
     return {
-      copied : false,
+      copied: false,
       serializers: {
         types: {
           image: CustomComponent,
@@ -97,14 +96,11 @@ let post = rpost[0]
       this.$router.push(`/printmode/${id}`);
     },
     returnSub(fromSub, fromStore, key) {
-
-        if (fromStore[0] != undefined && fromStore[0][key]) {
-          return fromStore[0][key];
-        }
-        else{
-          return ''
-        }
-
+      if (fromStore[0] != undefined && fromStore[0][key]) {
+        return fromStore[0][key];
+      } else {
+        return "";
+      }
     },
     returnDesc(fromSub, fromStore, key) {
       if (fromSub) {

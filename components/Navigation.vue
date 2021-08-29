@@ -7,7 +7,7 @@
         class="no-underline transition-all duration-300 text-PrimaryGreen logo hover:text-green-400 hover:no-underline"
         to="/"
       >
-        <span class="pl-2 text-2xl font-bold"
+        <span class="pl-2 text-2xl "
           ><i class="em em-grinning"></i> Disco Digital</span
         >
       </NuxtLink>

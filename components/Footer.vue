@@ -3,13 +3,13 @@
     <a class="logo" href="/">
       <div class="flex h-full p-3 logo">
         <img src="../static/logo.png" alt="" class="w-8 h-8 mx-3 my-auto" />
-        <h3 class=" place-self-center text-PrimaryGreen">Disco Digital</h3>
+        <h3 class="text-sm place-self-center text-PrimaryGreen lg:text-base">Disco Digital</h3>
       </div></a
     >
-    <div class="p-5 text-PrimaryGreen">
-      <a href="https://collabo.studio"
-        ><h4 class="mr-4">
-          Collabo Studio © {{ new Date().getFullYear() }}
+    <div class="flex p-5 text-PrimaryGreen">
+      <a href="https://collabo.studio" class="place-self-center"
+        ><h4 class="mr-4 text-sm lg:text-base">
+          Collabo Studio  <span class="text-black ">©</span>  {{ new Date().getFullYear() }}
         </h4></a
       >
     </div>
