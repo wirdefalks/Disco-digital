@@ -1,22 +1,32 @@
 <template>
-  <div class="flex flex-col justify-start px-1 mb-12 border border-white bg-ContainerGray">
-    <h1 class="px-4 pt-5 mx-3 mt-3 text-3xl font-bold text-left ">
-      Sökresultat: <em class="inline border-b text-PrimaryGreen">{{ $store.state.searchOrFilter ? $store.state.search : $store.state.filters  }} </em>  
+  <div
+    class="flex flex-col justify-start px-1 mb-12 border border-white bg-ContainerGray"
+  >
+    <h1 class="px-4 pt-5 mx-3 mt-3 text-3xl font-bold text-left">
+      Sökresultat:
+      <em class="inline border-b text-PrimaryGreen"
+        >{{
+          $store.state.searchOrFilter
+            ? $store.state.search
+            : $store.state.filters
+        }}
+      </em>
     </h1>
     <div>
       <div v-if="filteredContent">
-        <ToggleAccordion class="mb-3" />
+        <ToggleAccordion v-if="this.found != 0" class="mb-3" />
         <SinglePost
-        
           v-for="(post, index) in filteredContent"
           :post="post"
           :index="index"
-          :key="'ba'+ post.title"
-          :catSlugy='post.category'
+          :key="'ba' + post.title"
+          :catSlugy="post.category"
         />
       </div>
     </div>
-    <div v-html="text" :class="[text.length > 0 &&'bg-red-200' ,'p-6 m-5']">{{text.length}}</div>
+    <div v-html="text" :class="[text.length > 0 && 'bg-red-200', 'p-6 m-5']">
+      {{ text.length }}
+    </div>
   </div>
 </template>
 
@@ -40,7 +50,7 @@ export default {
   },
   computed: {
     filteredContent() {
-      let f ;
+      let f;
       if (this.$store.state.searchOrFilter) {
         f = this.posts.filter((x) =>
           x.title && x.plain
@@ -65,7 +75,7 @@ export default {
             x
         );
         ca.forEach((x) => (x != false ? f.push(x) : ""));
-        let nc = c.forEach((x) => (x != false ? f.push(x) : ""));
+        c.forEach((x) => (x != false ? f.push(x) : ""));
       } else {
         f = this.posts.filter((x) =>
           x.tags ? x.tags.sort().join().includes(this.$store.state.filters) : ""
@@ -82,9 +92,8 @@ export default {
       let uniqueChars = f.filter((c, index) => {
         return f.indexOf(c) === index;
       });
-       return uniqueChars;
+      return uniqueChars;
     },
   },
 };
 </script>
- 
