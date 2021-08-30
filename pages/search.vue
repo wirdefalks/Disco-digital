@@ -40,7 +40,7 @@ export default {
   },
   computed: {
     filteredContent() {
-      let f, c;
+      let f ;
       if (this.$store.state.searchOrFilter) {
         f = this.posts.filter((x) =>
           x.title && x.plain
@@ -82,8 +82,7 @@ export default {
       let uniqueChars = f.filter((c, index) => {
         return f.indexOf(c) === index;
       });
-      // console.log(uniqueChars)
-      return uniqueChars;
+       return uniqueChars;
     },
   },
 };
