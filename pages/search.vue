@@ -16,7 +16,7 @@
         />
       </div>
     </div>
-    <div v-html="text" class="p-6 m-5 bg-red-200"></div>
+    <div v-html="text" :class="[text.length > 0 &&'bg-red-200' ,'p-6 m-5']">{{text.length}}</div>
   </div>
 </template>
 
