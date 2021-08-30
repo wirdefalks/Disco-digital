@@ -1,5 +1,5 @@
 <template>
-  <div>
+ 
     <div class="flex flex-col justify-start bg-ContainerGray">
       <div
         v-if="!isLast"
@@ -10,7 +10,7 @@
       ></div>
       <p
         v-if="!isLast"
-        class="p-6 ml-0 text-lg tracking-wide border-t cursor-pointer text-PrimaryGreen showI"
+        class="p-6 ml-0 text-lg tracking-wide transition-all duration-500 cursor-pointer text-PrimaryGreen hover:text-green-800 showI"
         @click="characterItemClick(index)"
       >
         {{ post.title }}
@@ -79,7 +79,7 @@
         </div>
       </div>
     </div>
-  </div>
+ 
 </template>
 
 <script>

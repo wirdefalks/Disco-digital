@@ -15,7 +15,7 @@
           >
             <div v-for="(category, index) in categories" :key="category._id">
               <p
-                class="py-3 pt-4 ml-0 text-lg tracking-wide border-t border-gray-600 cursor-pointer text-PrimaryGreen showI"
+                class="py-3 pt-4 ml-0 text-lg tracking-wide transition-all duration-500 border-t border-gray-600 cursor-pointer text-PrimaryGreen hover:text-green-800 showI"
                 @click="characterItemClick(index)"
               >
                 {{ category.title }}
@@ -93,6 +93,7 @@ export default {
   content: "+";
   font-size: larger;
 }
+
 .hideI::before {
   content: "-";
   font-size: larger;

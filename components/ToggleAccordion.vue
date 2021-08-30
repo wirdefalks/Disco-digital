@@ -4,7 +4,7 @@
       @click="toggleAccordion('-')"
       class="px-5 m-3 rounded-md bg-PrimaryGreen"
     >
-      -  Minimera alla
+      - Minimera alla
     </button>
     <button
       @click="toggleAccordion('+')"
@@ -15,10 +15,10 @@
   </div>
 </template>
 <script>
-import minMax from '../mixins/minMax'
+import minMax from "../mixins/minMax";
 export default {
-    component: 'ToggleAccordion',
-    mixins: [ minMax ],
+  component: "ToggleAccordion",
+  mixins: [minMax],
 };
 </script>
 
