@@ -31,7 +31,7 @@
 		"nuxt-build-optimisations": "^1.0.6",
 		"nuxt-compress": "^4.0.0",
 		"sanity-blocks-vue-component": "^1.0.0",
-		"three": "^0.126.1",
+		"three": "^0.137.0",
 		"three-orbit-controls": "^82.1.0"
 	},
 	"devDependencies": {
