@@ -2,17 +2,23 @@
   <div class="overflow-x-hidden tot">
     <Navigation />
     <div
-      class="flex flex-col-reverse pt-16 lg:pt-20 md:flex-col-reverse lg:flex-row tot bg-BackgroundGray min-h-100vh"
+      class="
+        flex flex-col-reverse
+        pt-16
+        lg:pt-20
+        md:flex-col-reverse
+        lg:flex-row
+        tot
+        bg-BackgroundGray
+        min-h-100vh
+      "
     >
-      <Nuxt
-        class="mx-2 lg:mx-auto lg:w-8/12"
-      />
+      <Nuxt class="mx-2 lg:mx-auto lg:w-8/12" />
       <div v-if="true" class="z-10 mx-2 lg:mx-auto fadeInCG lg:w-2/12">
-        <SearchComponent class="shadow " />
+        <SearchComponent class="shadow" />
         <QuickMenu class="shadow" />
-        <Filters class="shadow" />
+        <Filters v-if="$store.state.settings.showFilters" class="shadow" />
       </div>
-   
     </div>
     <Footer class="w-8/12" />
   </div>
@@ -20,14 +26,14 @@
 
 <script>
 export default {
-data() {
-  return { searchi: false }
-},
-mounted() {
-  if(process.client) {
-    window.innerWidth < 600 ? this.searchi = false : this.searchi = true
-  }
-}
+  data() {
+    return { searchi: false };
+  },
+  mounted() {
+    if (process.client) {
+      window.innerWidth < 600 ? (this.searchi = false) : (this.searchi = true);
+    }
+  },
 };
 if (process.client) {
   var styles =
@@ -81,28 +87,27 @@ if (process.client) {
 </script>
 
 <style>
- 
-.fadeInCG{
+.fadeInCG {
   animation: fadeInCG 0.5s;
 }
 
-@keyframes fadeInCG{
+@keyframes fadeInCG {
   from {
     opacity: 0;
-    transform: scale(.99);
+    transform: scale(0.99);
   }
-  to{
+  to {
     opacity: 1;
     transform: scale(1);
   }
 }
 
-.min-h-100vh{
+.min-h-100vh {
   min-height: 91vh;
 }
-@media only screen and (min-width : 1300px) {
-  .min-h-100vh{
-  min-height: 93vh;
-}
+@media only screen and (min-width: 1300px) {
+  .min-h-100vh {
+    min-height: 93vh;
+  }
 }
 </style>

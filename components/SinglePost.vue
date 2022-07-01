@@ -63,9 +63,9 @@
                 returnSub(subCatDesc, post.subcategory, "description")
               }}</small>
             </div>
-            <div class="flex text-PrimaryGreen">
+            <div v-if="$store.state.settings.showFilters" class="flex text-PrimaryGreen">
               <small v-for="tag in post.tags" :key="'Axx' + tag">
-                <span class="text-black">[</span>
+                <span class="text-black">[</span> 
                 <NuxtLink :to="'/tag/' + tag"> {{ tag }} </NuxtLink>
                 <span class="text-black">] </span>
               </small>
