@@ -27,7 +27,7 @@
 		"core-js": "^3.6.5",
 		"eslint": "^5.0.0",
 		"gsap": "^3.6.0",
-		"nuxt": "^2.14.6",
+		"nuxt": "^3.4.3",
 		"nuxt-build-optimisations": "^1.0.6",
 		"nuxt-compress": "^4.0.0",
 		"sanity-blocks-vue-component": "^1.0.0",
